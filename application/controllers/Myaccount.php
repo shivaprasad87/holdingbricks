@@ -12,7 +12,9 @@ class myaccount extends CI_Controller {
                         $this->load->library('form_validation');
                         $this->load->helper('string');
     }	
+ 
 
+ //dummy line
     public function my_profile()
     {
       $id=$this->session->userdata('user_id');

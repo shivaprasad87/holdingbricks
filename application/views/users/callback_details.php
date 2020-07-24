@@ -1,4 +1,28 @@
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+<style>
+
+     
+     .form-group input[type="checkbox"] {display: none; } 
+     .form-group input[type="checkbox"] + .btn-group > label span {width: 20px; } 
+     .form-group input[type="checkbox"] + .btn-group > label span:first-child {display: none; } 
+     .form-group input[type="checkbox"] + .btn-group > label span:last-child {display: inline-block; } 
+     .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {display: inline-block; } 
+     .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {display: none; } 
+     tr.highlight_past td.due_date{background-color: #cc6666 !important; } 
+     tr.highlight_now td.due_date{background-color: #e4b13e !important; } 
+     tr.highlight_future td.due_date{background-color: #65dc68 !important; } 
+     #history_table td {border: 1px solid #aaa; padding: 5px } 
+    
+     input.largerCheckbox { 
+        width: 20px;
+    height: 20px;
+        } 
+
+        .form-control:read-only {
+   height: 100px;
+}
+     
+</style>
 <div class="content">
           <div class="container-fluid">
           <div class="row"> 
@@ -524,11 +548,13 @@ Team Fullbasket Property Services Pvt Ltd
                         <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                     </div>
                     <div class="clearfix"></div>
+                    <div class="row">
                     <div class="col-md-6 ">
-                        <input type="checkbox" name="fancy-checkbox-success" onclick="reassignDate()"  id="fancy-checkbox-success" autocomplete="off" />
                         <div class="btn-group">
                             <label for="fancy-checkbox-success" class="btn btn-success" style="margin-right: 0;">
                                 <span class="glyphicon glyphicon-ok"></span>
+                                <input type="checkbox" class="largerCheckbox" name="fancy-checkbox-success" onclick="reassignDate()"  id="fancy-checkbox-success" autocomplete="off" />
+                       
                                 <span> </span>
                             </label>
                             <label for="fancy-checkbox-success" class="btn btn-default active">
@@ -536,6 +562,7 @@ Team Fullbasket Property Services Pvt Ltd
                             </label>
                         </div>
                         <div id="reDate" hidden >
+                        <div class="row">
                             <div class="col-md-6  " >
                                 <label for="leadId">Date:</label>
                                 <input type="text" class="form-control datepicker" id="reassign_date" name="email2" placeholder="Date">
@@ -544,14 +571,16 @@ Team Fullbasket Property Services Pvt Ltd
                                 <label for="leadId">Time:</label>
                                 <input type="text" id="reassign_time" name="daterange" value="" class="form-control timePicker" placeholder="HH:MM"/>
                             </div>
+                            </div>
                         </div>
                     </div>
                     <?php if (($this->session->userdata('user_type') == 'user') || ($this->session->userdata('user_type') == 'manager')){ ?> 
                         <div class="col-md-6  ">
-                            <input type="checkbox" name="fancy-checkbox-primary"   id="fancy-checkbox-primary" <?php echo ($this->session->userdata('siteVisitIds')) ? 'checked' : ''; ?> />
-                            <div class="btn-group">
+                             <div class="btn-group">
                                 <label for="fancy-checkbox-primary" class="btn btn-primary">
                                     <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="checkbox" name="fancy-checkbox-primary" class="largerCheckbox" id="fancy-checkbox-primary" <?php echo ($this->session->userdata('siteVisitIds')) ? 'checked' : ''; ?> />
+                           
                                     <span class=""> </span>
                                 </label>
                                 <label for="fancy-checkbox-primary" class="btn btn-default active">
@@ -559,6 +588,8 @@ Team Fullbasket Property Services Pvt Ltd
                                 </label>
                             </div>
                             <div id="siteVisitDate" <?php echo (!$this->session->userdata('siteVisitIds')) ? 'hidden' : ''; ?>  >
+                                
+                                <div class="row">
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
                                     <input type="text" class="form-control datepicker" id="sitevisit_date" name="sitevisit_date" placeholder="Date" value="<?php echo ($siteVisitData) ? $siteVisitData[0]['visitDate'] : ''?>">
@@ -572,13 +603,15 @@ Team Fullbasket Property Services Pvt Ltd
                                         <?php }?>              
                                     </select>
                                 </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6  ">
-                            <input type="checkbox" name="fancy-checkbox-default"   id="fancy-checkbox-default" autocomplete="off" />
                             <div class="btn-group">
                                 <label for="fancy-checkbox-default" class="btn btn-default">
                                     <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="checkbox" name="fancy-checkbox-default" class="largerCheckbox"  id="fancy-checkbox-default" autocomplete="off" />
+                           
                                     <span> </span>
                                 </label>
                                 <label for="fancy-checkbox-default" class="btn btn-default active">
@@ -586,9 +619,10 @@ Team Fullbasket Property Services Pvt Ltd
                                 </label>
                             </div>
                             <div id="siteVisitDone" hidden >
+                            <div class="row">
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
-                                    <input type="text" class="form-control datepicker" id="sitevisitdone_date" name="sitevisitdone_date" placeholder="Date" autocomplete="off">
+                                    <input type="text" class="form-control datepicker" class="largerCheckbox" id="sitevisitdone_date" name="sitevisitdone_date" placeholder="Date" autocomplete="off">
                                 </div>
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Project:</label>
@@ -599,13 +633,15 @@ Team Fullbasket Property Services Pvt Ltd
                                         <?php }?>              
                                     </select>
                                 </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6  ">
-                            <input type="checkbox" name="fancy-checkbox-default_notdone" id="fancy-checkbox-default_notdone" />
-                            <div class="btn-group">
+                             <div class="btn-group">
                                 <label for="fancy-checkbox-default_notdone" class="btn" style="background-color: #ad4ace;">
                                     <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="checkbox" name="fancy-checkbox-default_notdone" class="largerCheckbox" id="fancy-checkbox-default_notdone" />
+                          
                                     <span> </span>
                                 </label>
                                 <label for="fancy-checkbox-default_notdone" class="btn btn-default active">
@@ -624,10 +660,11 @@ Team Fullbasket Property Services Pvt Ltd
                             </div>
                         </div>
                         <div class="col-md-6  ">
-                            <input type="checkbox" name="fancy-checkbox-danger" onclick="showFacetoFaceDiv()"  id="fancy-checkbox-danger" autocomplete="off" />
                             <div class="btn-group">
                                 <label for="fancy-checkbox-danger" class="btn btn-danger">
                                     <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="checkbox" name="fancy-checkbox-danger" class="largerCheckbox" onclick="showFacetoFaceDiv()"  id="fancy-checkbox-danger" autocomplete="off" />
+                          
                                     <span> </span>
                                 </label>
                                 <label for="fancy-checkbox-danger" class="btn btn-default active">
@@ -635,6 +672,7 @@ Team Fullbasket Property Services Pvt Ltd
                                 </label>
                             </div>
                             <div id="facetoFace" hidden >
+                            <div class="row">
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
                                     <input type="text" class="form-control datepicker" id="facetoface_date" name="facetoface_date" placeholder="Date" autocomplete="off">
@@ -649,12 +687,14 @@ Team Fullbasket Property Services Pvt Ltd
                                     </select>
                                 </div>
                             </div>
+                            </div>
                         </div>
                         <div class="col-md-6  ">
-                            <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
-                            <div class="btn-group">
+                             <div class="btn-group">
                                 <label for="fancy-checkbox-warning" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="checkbox" name="important" class="largerCheckbox" id="fancy-checkbox-warning" autocomplete="off" />
+                         
                                     <span> </span>
                                 </label>
                                 <label for="fancy-checkbox-warning" class="btn btn-default active">
@@ -664,17 +704,20 @@ Team Fullbasket Property Services Pvt Ltd
                         </div>
                     <?php } ?>
                     <div class="col-md-6  ">
-                        <input type="checkbox" name="fancy-checkbox-info" onclick="clientEmail()"  id="fancy-checkbox-info" autocomplete="off" />
-                        <div class="btn-group">
+                       <div class="btn-group">
                             <label for="fancy-checkbox-info" class="btn btn-info">
                                 <span class="glyphicon glyphicon-ok"></span>
+                                <input type="checkbox" name="fancy-checkbox-info" class="largerCheckbox" onclick="clientEmail()"  id="fancy-checkbox-info" autocomplete="off" />
+                       
                                 <span> </span>
                             </label>
                             <label for="fancy-checkbox-info" class="btn btn-default active">
                                Client Registration Email
                             </label>
                         </div>
+                        
                         <div id="clientEmail" hidden>
+                        <div class="row">
                             <div class="col-sm-12  ">
                                 <label for="email_id">Email Id:</label>
                                 <input type="email" class="form-control" id="client_email_id" name="email_id" placeholder="Email Id">
@@ -711,14 +754,17 @@ Team Fullbasket Property
                                 <button type="button" onclick="sendRegMail()" class="btn btn-success">Send</button>
                             </div>
                         </div>
+                        </div>
                     </div>
                 <?php } ?>
-            </div>
+           
+          
              <div class="col-md-6  ">
-                        <input type="checkbox" name="fancy-checkbox-info-kyc" onclick="clientKYC()"  id="fancy-checkbox-info-kyc" autocomplete="off" />
-                        <div class="btn-group">
+                       <div class="btn-group">
                             <label for="fancy-checkbox-info-kyc" class="btn btn-info">
                                 <span class="glyphicon glyphicon-ok"></span>
+                                <input type="checkbox" name="fancy-checkbox-info-kyc" class="largerCheckbox" onclick="clientKYC()"  id="fancy-checkbox-info-kyc" autocomplete="off" />
+                       
                                 <span> </span>
                             </label>
                             <label for="fancy-checkbox-info-kyc" class="btn btn-default active">
@@ -728,7 +774,11 @@ Team Fullbasket Property
                        
                     </div>
 
+                    </div>
+                    </div>
+
                     <div id="clientKYC" hidden class="col-md-12  ">
+                    <div class="row">
                             <input type="hidden" id="callback_id_kyc" name="callback_id_kyc" value="<?= $id ?>">
                             <br>
                             <div class="col-md-12  ">
@@ -787,6 +837,7 @@ Team Fullbasket Property
                                 
                                 <input type="hidden" name="" id="user_id" value="<?=$this->session->userdata('user_id');?>">
                                 <button type="button" onclick="customer_kyc()" class="btn btn-success">Send</button>
+                            </div>
                             </div>
                         </div>
             </div>
@@ -1315,22 +1366,27 @@ $(document).ready(function() {
 
     function reassignDate(){
         $('#reDate').toggle();
+        $('#reDate').removeAttr("hidden");
     }
 
     function showSiteVisitFixDiv(){
         $('#siteVisitDate').toggle();
+        $('#siteVisitDate').removeAttr("hidden");
     }
 
     function showSiteVisitDoneDiv(){
         $('#siteVisitDone').toggle();
+        $('#siteVisitDone').removeAttr("hidden");
     }
 
     function showFacetoFaceDiv(){
         $('#facetoFace').toggle();
+        $('#facetoFace').removeAttr("hidden");
     }
 
     function clientEmail(){
         $('#clientEmail').toggle();
+        $('#clientEmail').removeAttr("hidden");
     }
     
     function le(){

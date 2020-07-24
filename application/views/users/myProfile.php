@@ -10,18 +10,18 @@
                 </div>
                 <div class="card-body mt-4">
                  <?php $attributes = array('class' => 'common_valid'); echo form_open("myaccount/update_Profile",$attributes); ?>
-                 <input type="hidden"  name="user[user_id]" value="<?php echo $user->user_id;?>">
+                 <input type="hidden"  name="user[id]" value="<?php echo $user->id;?>">
                     <div class="row"> 
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">First Name <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control  validate[required] "  id="fname" name="user[f_name]" value="<?php echo $user->f_name;?>">
+                          <input type="text" class="form-control  validate[required] "  id="fname" name="user[first_name]" value="<?php echo $user->first_name;?>">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Last Name  <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control  validate[required]" name="user[l_name]" value="<?php echo $user->l_name;?>">
+                          <input type="text" class="form-control  validate[required]" name="user[last_name]" value="<?php echo $user->last_name;?>">
                         </div>
                       </div>
                     </div>
@@ -31,7 +31,7 @@
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">User Name  <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control  validate[required]" name="user[username]" id="username" value="<?php echo $user->username;?>" disabled>
+                          <input type="text" class="form-control  validate[required]" name="user[loginid]" id="loginid" value="<?php echo $user->loginid;?>" disabled>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -55,21 +55,16 @@
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Phone 1  <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control  validate[required ,custom[onlyNumberSp]]" name="user[phone_1]" maxlength="10" minlength="10" value="<?php echo $user->phone_1;?>">
+                          <input type="text" class="form-control  validate[required ,custom[onlyNumberSp]]" name="user[mobile_number]" maxlength="10" minlength="10" value="<?php echo $user->mobile_number;?>">
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Phone 2</label>
-                          <input type="text" class="form-control validate[custom[onlyNumberSp]]" name="user[phone_2]" maxlength="10" minlength="10" value="<?php echo $user->phone_2;?>">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
+                   
+                      <!-- <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">City  <span class="text-danger">*</span></label>
                           <input type="text" class="form-control  validate[required]" name="user[city]" value="<?php echo $user->city;?>">
                         </div>
-                      </div>
+                      </div> -->
                     </div>
 
                     <div class="row">  
@@ -77,7 +72,7 @@
                         <div class="form-group bmd-form-group">
                           <label class="select-label bmd-label-floating">Branch  <span class="text-danger">*</span></label>
                           
-                          <select  class="form-control validate[required]" name="user[branch]" disabled>
+                          <select  class="form-control validate[required]" name="user[city]" disabled>
                               <option></option>
                               <?php foreach($branch as $row){ if($user->branch == $row->branch_id){?>
                               
@@ -94,25 +89,25 @@
                            <select class="form-control  validate[required]" name="user[role]" id="role" disabled>
           
 
-                            <option value="sales"  <?php if($user->role == "sales"){ echo "selected";} ?>>Sales</option>
+                            <option value="sales"  <?php if($user->type == 1){ echo "selected";} ?>>User</option>
 
-                            <option value="manager" <?php if($user->role == "manager"){ echo "selected";} ?>>Manager</option>
-                            <option value="Admin" <?php if($user->role == "Admin"){ echo "selected";} ?>>Admin</option>
+                            <option value="manager" <?php if($user->type == 2){ echo "selected";} ?>>Manager</option>
+                            <option value="Admin" <?php if($user->type == 5){ echo "selected";} ?>>Admin</option>
                           
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4 teammanager <?php if($user->role != 'sales'){echo "hide";}?> " >
+                      <div class="col-md-4 teammanager <?php if($user->type != 1){echo "hide";}?> " >
                       <div class="form-group bmd-form-group">
                           <label class=" select-label bmd-label-floating">Manager list  <span class="text-danger">*</span></label>
                           
                           <select  class="form-control  validate[required]" name="user[branch]" disabled>
-                              <option></option>
-                              <?php foreach($managerList as $row){ if($user->team_manager == $row->user_id){?>
                               
-                                  <option value="<?php echo $row->user_id ?>" selected ><?php echo $row->f_name ?></option>
+                              <?php foreach($managerList as $row){ if($user->team_manager == $row->id){?>
+                              
+                                  <option value="<?php echo $row->id ?>" selected ><?php echo $row->first_name ?></option>
                               <?php }else{?>
-                                <option value="<?php echo $row->user_id ?>"><?php echo $row->f_name ?></option>
+                                <option value="<?php echo $row->id ?>"><?php echo $row->first_name ?></option>
                               <?php }} ?>
                           </select>
                         </div>
@@ -135,8 +130,8 @@
                   
                 </div>
                 <div class="card-body mt-4">
-                  <?php $attributes = array('class' => 'common_valid'); echo form_open("myaccount/update_myPassword",$attributes); ?>
-                  <input type="hidden"  name="user_id" value="<?php echo $user->user_id;?>">
+                  <?php $attributes = array('class' => 'common_valid'); echo form_open("dashboard/change_password",$attributes); ?>
+                  <input type="hidden"  name="id" value="<?php echo $user->id;?>">
                 
                   <div class="row">  
                       <div class="col-md-12">
@@ -150,7 +145,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">confirm password <span class="text-danger">*</span></label>
-                          <input type="password" class="form-control  validate[required,equals[psw]]" id="copsw" name="cofpassword">
+                          <input type="password" class="form-control  validate[required,equals[psw]]" id="copsw" name="cpassword">
                          </div>
                       </div>
                   </div>

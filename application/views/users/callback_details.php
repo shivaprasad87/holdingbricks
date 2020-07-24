@@ -254,25 +254,29 @@
                         <div class="col-sm-12  ">
                             <label for="comment">Mail Box:</label>
                             <textarea class="form-control" name="notesClient" id="c_notesClient" rows="18" id="comment">
-Greetings From Fullbasket Property.
+Greetings from Holding Bricks!
 
-With reference to your site visit on  assisted by Mr. abhishek from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr.  from FBP will be at your service. He/she will be there to assist you in searching your dream home.
-  
-1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.
+With reference to your site visit assisted by Mr. Faizan Darga from Holding Bricks, we thank you for giving us an
+opportunity to serve you by helping you in searching your dream home at HB. It is our job to help you with all
+the possible property options which will suit your requirements. Mr. Faizan Darga from HB will be at your service
+always. He/She will be there to assist you in searching your dream home.
 
-2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.
+1. Home Search - Assisting and helping you find your dream home that suits your requirements, by giving you
+info. on market trends, legalities, site visit assistance etc.
 
-3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.
+2. Home Loan Assistance - We will take away your pain of running around the banks to get your loan approved,
+by providing doorstep service of bankers of your choice at your place.
 
-4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.
+3. Property Purchase Assistance - Ensuring that home buying becomes a pleasant experience. Our Relationship
+Manager will be there throughout the process of documentation.
 
-5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.
+4. Post Sales Service - This is what differentiates us from others. We will be there for all the possible help and
+guidance, till you move into your home.
 
+5. Interior Services - We are tied with the best Interior Designers in the city who offer the best designs, and that
+too at a competitive price.
 
-For any escalations/ complaints please write to admin@leads.com
-
-Regards
-Team Fullbasket Property Services Pvt Ltd
+For any escalation/complaints, please write to: faizan@holdingbricks.com
                             </textarea>
                         </div>
                         <div class="col-sm-12  " >
@@ -733,9 +737,9 @@ Team Fullbasket Property Services Pvt Ltd
                                 <textarea class="form-control" name="notes" id="client_email_body" rows="15" id="comment">          
 Dear sir / madam,
 
-Greetings From Fullbasket Property...
+Greetings From Holding Bricks...
 
-Kindly register the below client For __________________ project On behalf Of Fullbasket Property 
+Kindly register the below client For __________________ project On behalf Of Holding Bricks
 
 Property & acknowledge.
 
@@ -746,7 +750,7 @@ Contact No. : ________________
 E-mail ID   : ________________
 
 Thanks & Regards
-Team Fullbasket Property
+Team Holding Bricks
                                 </textarea>
                             </div>
                             <div class="col-sm-12  ">

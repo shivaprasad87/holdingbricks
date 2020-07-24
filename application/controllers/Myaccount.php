@@ -7,7 +7,7 @@ class myaccount extends CI_Controller {
 	public function __construct()
 	{
 			parent::__construct();
-                        $this->load->model(array('commonmodel'));
+                        $this->load->model(array('commonmodel','common_model','user_model'));
                         $this->load->helper('form');
                         $this->load->library('form_validation');
                         $this->load->helper('string');
@@ -22,9 +22,9 @@ class myaccount extends CI_Controller {
 		$whr=array("id"=>$id);
 		$data['user']=$this->commonmodel->fetch_result_with_condition_return_row("user",$whr);
 		$data['cities']=$this->commonmodel->display_all_data('cities');
-		$select=array('user_id',"f_name",'l_name','role','status');
-		$cond=array("status"=>'1',"role"=>'manager');
-	   $data['managerList'] =$this->commonmodel->fetch_selected_col_with_where("user",$select,$cond);
+		$select=array('id',"first_name",'last_name','type','active');
+		$cond=array("active"=>'1',"type"=>'2');
+	   $data['managerList'] =$this->user_model->get_manager_name($id);
 	  
       $this->load->view('common_files/header');
       $this->load->view('users/myProfile',$data);

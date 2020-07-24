@@ -31,6 +31,13 @@ class Admin extends CI_Controller {
 		$data['user_id'] = $this->session->userdata('user_id');
 		$data['today_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'today');
 		$data['callsDone'] = $this->callback_model->callbackTrackCountByUserId($data['user_id']);
+		$data['yesterday_callback_count'] = $this->callback_model->fetch_yesterday_callback_count($data['user_id']);
+		$data['overdue_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'overdue');
+		 $data['dead_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'dead');
+            $data['close_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'close');
+            $data['active_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'active');
+            $data['client_reg_count'] = $this->callback_model->fetch_client_reg_count($data['user_id']);
+            $data['total_revenue'] = $this->callback_model->fetch_total_revenue($data['user_id']);
       $this->load->view('common_files/header');
         $this->load->view('common_files/dashboard',$data);
         $this->load->view('common_files/footer');

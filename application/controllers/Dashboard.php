@@ -63,6 +63,7 @@ class Dashboard extends CI_Controller {
             $data['today_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'today');
             $data['yesterday_callback_count'] = $this->callback_model->fetch_yesterday_callback_count($data['user_id']);
             $data['overdue_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'overdue');
+             
            // $data['total_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],"all","",true);
             $data['total_callback_count'] = $this->callback_model->all_leads_count();
             
@@ -582,6 +583,7 @@ class Dashboard extends CI_Controller {
             'a_services' => $query->a_services,
             'tos' => $query->tos,
             'client_type' => $query->client_type,
+            'important' => $query->important,
         );
 
         // $siteVisitResult = $this->callback_model->callbackSiteVisitDataByClause(['callback_id'=>$id, 'type !='=>1],['callback_id', 'project_id', 'date as visitDate']); 

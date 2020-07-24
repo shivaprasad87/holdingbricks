@@ -257,7 +257,44 @@ class my_leads extends CI_Controller {
                                         $id= $this->uri->segment(4);
                                     }else{
                                         $id=$this->session->userdata('user_id');}
-                                    $results=$this->leadmodel->fetch_all_todays_leadsd($id);
+                                    $results=$this->leadmodel->fetch_all_todays_leadsd($id,$col);
+
+                            $data = array();
+                            $i=1;
+                                foreach ($results  as $r) {
+                                    array_push($data, array(
+                                            //print_r($r);
+                                            $i,
+                                            $r->leadid,
+                                            $r->name,
+                                            $r->contact_no1,
+                                            $r->email1,
+                                            $r->project_name,
+                                            $r->call_back_type,
+                                            $r->lead_status,
+                                            $r->date_added,
+                                            anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                                            <i class="material-icons">edit</i>
+                                            <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
+                                        
+
+                                        
+                                                
+                                    ));
+                                    $i++;
+                                }
+                                //print_r($results);
+                            echo json_encode(array('data' => $data));//send data to data table
+        }
+         public function get_due_leads()
+        {
+                                    $col=$this->uri->segment('3');
+                                    $ids= $this->uri->segment(4);
+                                    if(isset($ids)){
+                                        $id= $this->uri->segment(4);
+                                    }else{
+                                        $id=$this->session->userdata('user_id');}
+                                    $results=$this->leadmodel->fetch_over_due_leadsd($id,$col);
 
                             $data = array();
                             $i=1;

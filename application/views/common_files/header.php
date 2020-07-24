@@ -32,6 +32,7 @@ $session=$this->session->userdata();
   <link href="<?php echo base_url();?>/assets/css/footable.bootstrap.min.css" rel="stylesheet" />
   <script src="<?php echo base_url();?>/assets/js/footable.min.js"></script>
   <script src="<?php echo base_url();?>/assets/js/footable.js"></script> 
+
    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" /> -->
 <!--    <link href="<?php echo base_url();?>/assets/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css" /> -->
    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -116,6 +117,29 @@ label {
 }
   </style>
   </head>
+  <div class="modal fade" id="modalPermission" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <form id="privilege-frm" class="" name="" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">                    
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Give Permission</h4> 
+                    </div>
+                    <div class="modal-body permission-lists">                        
+                            <!-- fetch from ajax jquery -->                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success sbmt"  data-dismiss="modal">Submit</button>
+                        <input type="hidden" name="userId" value="" class="userId">                        
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-6 errMsg"></div>
+                    <div class="clearfix"></div>
+                </div>            
+            </form>
+        </div>
+    </div>
 <body class="">
   <div class="wrapper ">
    <?php include 'sideMenu.php'?>

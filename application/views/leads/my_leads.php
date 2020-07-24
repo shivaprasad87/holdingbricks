@@ -29,7 +29,7 @@
                     <div class="nav-tabs-wrapper">
                      
                       <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
+                        <li class="nav-item" class="active">
                           <a class="nav-link" href="#My_Leads" data-toggle="tab">
                            All Leads
                             <div class="ripple-container"></div>

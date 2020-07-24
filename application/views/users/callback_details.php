@@ -537,6 +537,7 @@ Team Fullbasket Property Services Pvt Ltd
                </div>
 
                 <div class="clearfix"></div>
+                <div class="row">
                 <div class="col-md-6">
                     <label class = "select-label"for="comment">Preview Callbacks:</label>
                     <textarea class="form-control" name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $previous_callback;?></textarea>
@@ -547,6 +548,7 @@ Team Fullbasket Property Services Pvt Ltd
                         <label for="comment">Current Callbacks:</label>
                         <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                     </div>
+                </div>
                     <div class="clearfix"></div>
                     <div class="row">
                     <div class="col-md-6 ">
@@ -587,7 +589,7 @@ Team Fullbasket Property Services Pvt Ltd
                                    Site Visit Fixed
                                 </label>
                             </div>
-                            <div id="siteVisitDate" <?php echo (!$this->session->userdata('siteVisitIds')) ? 'hidden' : ''; ?>  >
+                            <div id="siteVisitDate" <?php echo (!$this->session->userdata('siteVisitIds')) ? 'style="display: none;"' : ''; ?>  >
                                 
                                 <div class="row">
                                 <div class="col-sm-12  " >
@@ -618,7 +620,7 @@ Team Fullbasket Property Services Pvt Ltd
                                    Site Visit Done
                                 </label>
                             </div>
-                            <div id="siteVisitDone" hidden >
+                            <div id="siteVisitDone" style="display: none;" >
                             <div class="row">
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
@@ -648,7 +650,7 @@ Team Fullbasket Property Services Pvt Ltd
                                    Site Visit Not Done
                                 </label>
                             </div>
-                            <div id="siteVisitNotDone" hidden >
+                            <div id="siteVisitNotDone" style="display: none;" >
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
                                     <input type="text" class="form-control datepicker" id="notdone_date" name="notdone_date" placeholder="Date" autocomplete="off">
@@ -671,7 +673,7 @@ Team Fullbasket Property Services Pvt Ltd
                                    Face to Face Done
                                 </label>
                             </div>
-                            <div id="facetoFace" hidden >
+                            <div id="facetoFace" style="display: none;" >
                             <div class="row">
                                 <div class="col-sm-12  " >
                                     <label for="leadId">Date:</label>
@@ -693,7 +695,7 @@ Team Fullbasket Property Services Pvt Ltd
                              <div class="btn-group">
                                 <label for="fancy-checkbox-warning" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-ok"></span>
-                                    <input type="checkbox" name="important" class="largerCheckbox" id="fancy-checkbox-warning" autocomplete="off" />
+                                    <input type="checkbox" name="important" class="largerCheckbox" id="fancy-checkbox-warning" autocomplete="off" <?php if($important==1) echo "checked"; ?> />
                          
                                     <span> </span>
                                 </label>
@@ -716,7 +718,7 @@ Team Fullbasket Property Services Pvt Ltd
                             </label>
                         </div>
                         
-                        <div id="clientEmail" hidden>
+                        <div id="clientEmail" style="display: none;">
                         <div class="row">
                             <div class="col-sm-12  ">
                                 <label for="email_id">Email Id:</label>
@@ -777,7 +779,7 @@ Team Fullbasket Property
                     </div>
                     </div>
 
-                    <div id="clientKYC" hidden class="col-md-12  ">
+                    <div id="clientKYC" style="display: none;" class="col-md-12  ">
                     <div class="row">
                             <input type="hidden" id="callback_id_kyc" name="callback_id_kyc" value="<?= $id ?>">
                             <br>
@@ -1370,13 +1372,15 @@ $(document).ready(function() {
     }
 
     function showSiteVisitFixDiv(){
-        $('#siteVisitDate').toggle();
         $('#siteVisitDate').removeAttr("hidden");
+        $('#siteVisitDate').toggle();
+        
     }
 
     function showSiteVisitDoneDiv(){
-        $('#siteVisitDone').toggle();
         $('#siteVisitDone').removeAttr("hidden");
+        $('#siteVisitDone').toggle();
+        
     }
 
     function showFacetoFaceDiv(){

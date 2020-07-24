@@ -19,7 +19,7 @@
                 <div class="card-header card-header-warning card-header-icon">
                  
                   <p class="card-category text-white">Today's Call done</p>
-                  <h3 class="card-title text-white"><?php if($callsDone>0){echo $callsDone;}else{echo "0";} ?>
+                  <h3 class="card-title text-white"><?php if($callsDone){echo $callsDone;}else{echo "0";} ?>
                    </h3>
                 </div>
                 
@@ -30,7 +30,7 @@
                 <div class="card-header card-header-success card-header-icon">
                 
                   <p class="card-category text-white">Yesterday's call</p>
-                  <h3 class="card-title text-white"><?php if(isset($yesterday_callback_count)){echo $yesterday_callback_count;}else{echo "0";} ?></h3>
+                  <h3 class="card-title text-white"><?php if($yesterday_callback_count){echo $yesterday_callback_count;}else{echo "0";} ?></h3>
                </div>
                  
               </div>
@@ -40,7 +40,7 @@
               <div class="card card-stats bg-warning mb-lg-0">
                 <div class="card-header card-header-danger card-header-icon">
                    <p class="card-category text-white">Overdue call</p>
-                  <h3 class="card-title text-white"><?php if(isset($overdue_callback_count)){echo $overdue_callback_count;}else{echo "0";} ?></h3>
+                  <h3 class="card-title text-white"><?php if($overdue_callback_count){echo $overdue_callback_count;}else{echo "0";} ?></h3>
                   </div>
                  </div>
                  </a>
@@ -50,7 +50,7 @@
                 <div class="card-header card-header-info card-header-icon">
                 
                   <p class="card-category text-white">Call assigned today</p>
-                  <h3 class="card-title text-white"><?php if($today_callback_count>0){echo $today_callback_count;}else{echo "0";}  ?></h3>
+                  <h3 class="card-title text-white"><?php if($today_callback_count){echo $today_callback_count;}else{echo "0";}  ?></h3>
                 </div>
                  
               </div>
@@ -60,7 +60,7 @@
                 <div class="card-header card-header-info card-header-icon">
                   
                   <p class="card-category text-white" style="font-size: 20px;">Revenue generated</p> 
-                  <h3 class="card-title text-white"><?php if(isset($total_revenue)){echo $total_revenue;}else{echo "0";}?></h3>
+                  <h3 class="card-title text-white"><?php if($total_revenue){echo $total_revenue;}else{echo "0";}?></h3>
                 </div>
                 
               </div>
@@ -87,7 +87,7 @@
                 <div class="card-header card-header-success card-header-icon">
                 
                   <p class="card-category text-white">Yesterday's call</p>
-                  <h3 class="card-title text-white"><?php if(isset($yesterday_callback_count)){echo $yesterday_callback_count;}else{echo "0";} ?></h3>
+                  <h3 class="card-title text-white"><?php if($yesterday_callback_count){echo $yesterday_callback_count;}else{echo "0";} ?></h3>
                 </div>
                  
               </div>
@@ -98,7 +98,7 @@
                 <div class="card-header card-header-danger card-header-icon">
                    
                   <p class="card-category text-white">Overdue call</p>
-                  <h3 class="card-title text-white"><?php if(isset($overdue_callback_count)){echo $overdue_callback_count;}else{echo "0";} ?></h3>
+                  <h3 class="card-title text-white"><?php if($overdue_callback_count){echo $overdue_callback_count;}else{echo "0";} ?></h3>
                 </div>
                 
               </div>
@@ -128,7 +128,7 @@
               <div class="card card-stats bg-danger mb-lg-0">
                 <div class="card-header card-header-warning card-header-icon">
                   <h4 class="card-category text-white">Dead leads</h4>
-                  <h3 class="card-title text-white"><?php if(isset($leadarray['Dead'])){echo $leadarray['Dead'];}else{echo "0";}?>
+                  <h3 class="card-title text-white"><?php if($dead_leads_count){echo $dead_leads_count;}else{echo "0";}?>
                   </h3>
                 </div>
               </div>
@@ -137,7 +137,7 @@
               <div class="card card-stats bg-warning mb-lg-0">
                 <div class="card-header card-header-success card-header-icon">
                   <h4 class="card-category text-white">Closed leads</h4> 
-                  <h3 class="card-title text-white"><?php if(isset($leadarray['Close'])){echo $leadarray['Close'];}else{echo "0";}?></h3>
+                  <h3 class="card-title text-white"><?php if($close_leads_count){echo $close_leads_count;}else{echo "0";}?></h3>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@
               <div class="card card-stats bg-rose mb-lg-0">
                 <div class="card-header card-header-danger card-header-icon">
                  <h4 class="card-category text-white">Active leads</h4>
-                  <h3 class="card-title text-white"><?php if($today_callback_count>0){echo $today_callback_count;}else{echo "0";}?></h3>
+                  <h3 class="card-title text-white"><?php if($active_leads_count){echo $active_leads_count;}else{echo "0";}?></h3>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@
               <div class="card card-stats bg-primary mb-lg-0">
                 <div class="card-header card-header-info card-header-icon">
                  <h4 class="card-category text-white">Total customer register</h4>
-                  <h3 class="card-title text-white"><?php if(isset($cge->cge)){echo $cge->cge;}else{echo "0";}?></h3>
+                  <h3 class="card-title text-white"><?php if($client_reg_count){echo $client_reg_count;}else{echo "0";}?></h3>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@
               <div class="card card-stats bg-success mb-lg-0">
                 <div class="card-header card-header-info card-header-icon">
                 <h4 class="card-category text-white">Revenue generated</h4>
-                <h3 class="card-title text-white"><?php if(isset($netRevenu->net_revenu)){echo $netRevenu->net_revenu;}else{echo "0";}?></h3>
+                <h3 class="card-title text-white"><?php if($total_revenue){echo $total_revenue;}else{echo "0";}?></h3>
                 </div>
               </div>
             </div>
@@ -351,7 +351,7 @@
     
     });
     $('#overdueCalls').dataTable({
-        "ajax": "<?php echo base_url('my_leads/get_all_todays_leads/all/'.$id."/"); ?>",
+        "ajax": "<?php echo base_url('my_leads/get_due_leads/all/'.$id."/"); ?>",
         "dom": 'T<"clear">lfrtip',
         
     

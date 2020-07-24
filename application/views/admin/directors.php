@@ -12,40 +12,44 @@
     <br>
     <br>
     <div id="myDIV" style="display:none;">
+    
         <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
-            <div class="col-sm-3 form-group">
+        <div class="row">
+        <div class="col-md-4 form-group mb-2">
                 <label for="director">Enter First Name:</label>
                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
             </div>
 
-            <div class="col-sm-3 form-group">
+            <div class="col-md-4 form-group mb-2">
                 <label for="director">Enter Last Name:</label>
                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" >
             </div>
 
-            <div class="col-sm-3 form-group">
+            <div class="col-md-4 form-group mb-2">
                 <label for="email">Enter Email:</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
             </div>
 
-            <div class="col-sm-3 form-group">
+            <div class="col-md-4 form-group mb-2">
                 <label for="emp_code">Enter Emp code:</label>
                 <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-4 form-group mb-2">
                 <label for="emp_last_name">Mobile Number:</label>
                 <input type="text" class="form-control" id="emp_last_name" name="employee_mobile" placeholder="Employee Mobile Number" required="required">
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-md-4 form-group mb-2">
                 <label for="emp_last_name">Address:</label>
                 <textarea name="employee_address"></textarea>
             </div>
-
+        </div>
+        </div>
             <div class="col-sm-12 form-group">
                 <button type="submit" style="margin-top:25px;" id="add_director" class="btn btn-success btn-block" disabled>Add Director</button>
             </div>
+
         </form>
-    </div>
+   
 
     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
@@ -89,9 +93,11 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Director</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>    
                 <div class="modal-body">
+                <div class="row">
                     <input type="hidden" id="hid" name="hid">
                     
                     <div class="col-sm-6 form-group">
@@ -113,6 +119,7 @@
                         <label for="emp_code">Email-id:</label>
                         <input type="text" class="form-control" id="m_email" name="m_email_id" placeholder="Email id">
                     </div>
+
                     <div class="col-sm-6 form-group">
                     <label for="emp_last_name">Mobile Number:</label>
                     <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
@@ -123,7 +130,8 @@
                     </div>
 
                 </div>
-            </div>
+                </div>
+           
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()" data-dismiss="modal">Submit</button>
             </div>

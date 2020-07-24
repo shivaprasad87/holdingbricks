@@ -1,3 +1,5 @@
+
+
 <div class="content">
           <div class="container-fluid">
  
@@ -11,6 +13,7 @@
                     <div class="container">
  
     <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
+    <div class="row">
         <div class="col-sm-3 form-group">
             <label for="director">Enter First Name:</label>
             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
@@ -72,6 +75,8 @@
             </select>
         </div>
 
+        </div>
+
         <div class="col-sm-12 form-group">
             <button type="submit" style="margin-top:25px;" id="add_manager" class="btn btn-success btn-block" disabled>Add City Head</button>
         </div>
@@ -125,9 +130,11 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Edit City Head</h4>
+             
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit City Head</h4>
-                <div class="modal-body">
+        </div>
+         <div class="modal-body">
                     <input type="hidden" id="hid" name="hid">
                     <div class="row">
                             <div class="col-sm-6 form-group">
@@ -209,7 +216,7 @@
                 <button type="button" class="btn btn-success" onclick="update_user()" >Submit</button>
             </div>
         </div>
-    </div>
+    
 </div>
 
 

@@ -14,35 +14,35 @@
     <div id="myDIV" style="display:none;">
         <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-sm-3 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="director">Enter First Name:</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
                 </div>
 
-                <div class="col-sm-3 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="director">Enter Last Name:</label>
                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" >
                 </div>
 
-                <div class="col-sm-3 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="email">Enter Email:</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                 </div>
 
-                <div class="col-sm-3 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">Enter Emp code:</label>
                     <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_last_name">Mobile Number:</label>
                     <input type="text" class="form-control" id="employee_mobile" name="employee_mobile" placeholder="Employee Mobile Number" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_last_name">Address:</label>
                     <textarea name="employee_address"></textarea>
                 </div>
 
-                <div class="col-md-3 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">Deprtment:</label>
                     <select  class="form-control"  id="user_type" name="department" required="required" >
                         <option value="">Select</option>
@@ -53,7 +53,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-3 form-group">
+                <div class="col-md-3 form-group mb-2">
                     <label for="emp_code">City:</label>
                     <select  class="form-control"  id="user_type" name="city" required="required" >
                         <option value="">Select</option>
@@ -64,7 +64,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6 form-group">
+                <div class="col-md-3 form-group mb-2">
                     <label for="emp_code">VP:</label>
                     <select  class="form-control"  id="director" name="director" required="required" >
                         <option value="">Select</option>
@@ -75,7 +75,7 @@
                     </select>
                 </div>
 
-                <div class="col-sm-12 form-group">
+                <div class="col-sm-12 form-group mb-2">
                     <button type="submit" style="margin-top:25px;" id="add_manager" class="btn btn-success btn-block" disabled>Add Manager</button>
                 </div>
             </div>
@@ -132,8 +132,11 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Manager</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+               
+            </div>    
+                
                 <div class="modal-body">
                     <input type="hidden" id="hid" name="hid">
                     <div class="row">
@@ -200,11 +203,11 @@
                                 <option value="City_head">City Head</option>
                             </select>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="emp_last_name">Mobile Number:</label>
                             <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="emp_last_name">Address:</label>
                             <textarea id ="m_employee_address"name="m_employee_address"></textarea>
                         </div>

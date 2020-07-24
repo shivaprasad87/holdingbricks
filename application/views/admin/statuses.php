@@ -1,3 +1,12 @@
+
+
+<style>
+    .bmd-form-group .bmd-label-static {
+        top:-14px;
+    left: 15;
+    font-size: 0.875rem;
+}
+</style>
 <div class="content">
           <div class="container-fluid">
  
@@ -10,13 +19,18 @@
                 <div class="card-body">
                     <div class="container">
  
-    <div class="col-sm-6 form-group">
-        <label for="status">Enter Status:</label>
-        <input type="text" class="form-control" onblur="check_status(this.value)" id="status"  name="status" placeholder="Enter Status">
-    </div>
-    <div class="col-sm-6 form-group">
-        <button type="submit" id="add_status" style="margin-top:25px;" class="btn btn-success btn-block" onclick="add()" disabled>Add Status</button>
-    </div>
+                <div class="col-sm-6 form-group">
+                    <label for="status">Enter Status:</label>
+                    <input type="text" class="form-control" onblur="check_status(this.value)" id="status"  name="status" placeholder="Enter Status">
+                </div>
+                <div class="col-sm-6 form-group">
+                    <button type="submit" id="add_status" style="margin-top:25px;" class="btn btn-success btn-block" onclick="add()" disabled>Add Status</button>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+         </div>
     <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -39,6 +53,9 @@
             } ?>
         </tbody>
     </table>
+
+    </div>
+    </div>
     <script>
         function add(){
             $(".se-pre-con").show();

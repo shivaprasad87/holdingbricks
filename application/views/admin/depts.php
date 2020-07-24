@@ -1,3 +1,10 @@
+<style>
+    .bmd-form-group .bmd-label-static {
+        top:-14px;
+    left: 15;
+    font-size: 0.875rem;
+}
+</style>
 <div class="content">
           <div class="container-fluid">
  

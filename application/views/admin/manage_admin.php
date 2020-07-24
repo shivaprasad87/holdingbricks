@@ -10,71 +10,72 @@
                 <div class="card-body">
                     <div class="container">
  
-    <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
-    <div class="col-sm-12 col-md-12">
-      <div class="row">   
-     <div class="col-xs-6 col-md-3 form-group">
-            <label for="director">Enter First Name:</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
-        </div>
+                        <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="row">   
+                                <div class="col-xs-6 col-md-3 form-group">
+                                    <label for="director">Enter First Name:</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" required>
+                                </div>
 
-        <div class="col-xs-6 col-md-3 form-group">
-            <label for="director">Enter Last Name:</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" >
-        </div>
+                                <div class="col-xs-6 col-md-3 form-group">
+                                    <label for="director">Enter Last Name:</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" >
+                                </div>
 
-        <div class="col-xs-6 col-md-3 form-group">
-            <label for="email">Enter Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
-        </div>
+                                <div class="col-xs-6 col-md-3 form-group">
+                                    <label for="email">Enter Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                                </div>
 
-        <div class="col-xs-6 col-md-3 form-group">
-            <label for="emp_code">Enter Emp code:</label>
-            <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
-        </div>
+                                <div class="col-xs-6 col-md-3 form-group">
+                                    <label for="emp_code">Enter Emp code:</label>
+                                    <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
+                                </div>
 
-        <div class="col-sm-12 form-group">
-            <button type="submit" style="margin-top:25px;" id="add_admin" class="btn btn-success btn-block" disabled>Add Admin</button>
-        </div>
-        </div>
-     </div>
-    </form>
+                                <div class="col-sm-12 form-group">
+                                    <button type="submit" style="margin-top:25px;" id="add_admin" class="btn btn-success btn-block" disabled>Add Admin</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
 
-    <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>VP Name</th>
-                <th>VP Email</th>
-                <th>Emp Code</th>
-                <th>Date Added</th>
-                <th>Status</th>
-                <th>Edit</th>
-                <th>Change Password</th> 
-                <th>Privilege</th>
-            </tr>
-        </thead> 
-        <tbody>
-            <?php if(isset($all_admins) && $all_admins){
-                foreach($all_admins as $admin){?>
-                    <tr>
-                        <td><?php echo $admin->id; ?></td>
-                        <td><?php echo $admin->first_name." ".$admin->last_name; ?></td>
-                        <td><?php echo $admin->email; ?></td>                        
-                        <td><?php echo $admin->emp_code; ?></td>
-                        <td><?php echo $admin->date_added; ?></td>
-                        <td align="middle"><button type="button" id="b1<?php echo $admin->id; ?>" class="btn <?php echo $admin->active?'btn-info':'btn-danger'; ?>" onclick="change_state(<?php echo $admin->id; ?>)"><span id="stateus_sp_<?php echo $admin->id; ?>"><?php echo $admin->active?'Active':'Inactive'; ?></span></button></td>
-                        <td align="middle"><button type="button" class="btn btn-info" onclick="edit_user(<?php echo $admin->id; ?>)" data-toggle="modal" data-target="#modal_edit">Edit</button></td>
-                        <td align="middle"><button type="button" class="btn btn-info" onclick="reset_password(<?php echo $admin->id; ?>)">Reset Password</button></td>
-                        <td align="middle">
-                            <button type="button" class="btn btn-info" onclick="permissionModal(<?php echo $admin->id; ?>)" data-toggle="modal" data-target="#modalPermission">Permission</button>
-                        </td>
-                    </tr>
-                <?php }
-            } ?>
-        </tbody>
-    </table>
-</div>
+                        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>VP Name</th>
+                                    <th>VP Email</th>
+                                    <th>Emp Code</th>
+                                    <th>Date Added</th>
+                                    <th>Status</th>
+                                    <th>Edit</th>
+                                    <th>Change Password</th> 
+                                    <th>Privilege</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                                <?php if(isset($all_admins) && $all_admins){
+                                    foreach($all_admins as $admin){?>
+                                        <tr>
+                                            <td><?php echo $admin->id; ?></td>
+                                            <td><?php echo $admin->first_name." ".$admin->last_name; ?></td>
+                                            <td><?php echo $admin->email; ?></td>                        
+                                            <td><?php echo $admin->emp_code; ?></td>
+                                            <td><?php echo $admin->date_added; ?></td>
+                                            <td align="middle"><button type="button" id="b1<?php echo $admin->id; ?>" class="btn <?php echo $admin->active?'btn-info':'btn-danger'; ?>" onclick="change_state(<?php echo $admin->id; ?>)"><span id="stateus_sp_<?php echo $admin->id; ?>"><?php echo $admin->active?'Active':'Inactive'; ?></span></button></td>
+                                            <td align="middle"><button type="button" class="btn btn-info" onclick="edit_user(<?php echo $admin->id; ?>)" data-toggle="modal" data-target="#modal_edit">Edit</button></td>
+                                            <td align="middle"><button type="button" class="btn btn-info" onclick="reset_password(<?php echo $admin->id; ?>)">Reset Password</button></td>
+                                            <td align="middle">
+                                                <button type="button" class="btn btn-info" onclick="permissionModal(<?php echo $admin->id; ?>)" data-toggle="modal" data-target="#modalPermission">Permission</button>
+                                            </td>
+                                        </tr>
+                                    <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal_edit" role="dialog">
@@ -82,8 +83,9 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit User</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>   
                 <div class="modal-body">
                     <input type="hidden" id="hid" name="hid">
                     <div class="row">
@@ -108,7 +110,7 @@
                         </div> 
                     </div>                    
                 </div>
-            </div>
+           
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()" data-dismiss="modal">Submit</button>
             </div>

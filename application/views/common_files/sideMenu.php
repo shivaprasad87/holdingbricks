@@ -1,4 +1,16 @@
-
+<style>
+  .open>.dropdown-menu, .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    width: 88%;
+    transform: scale(1);
+    top: 50px!important;
+    position: absolute!important;
+}
+.dropdown-menu ul li{
+  list-style:none;
+}
+  </style>
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -38,9 +50,10 @@ $i=1;
                     $aAttr  = 'data-toggle="dropdown" dropdown-toggle';
                 ?>
 
- <li class="nav-item <?=  ($this->router->fetch_method() == $pModule['permalink']) ? 'active' : $this->router->fetch_method() ?>">
+                <li class="nav-item  dropdown <?=  ($this->router->fetch_method() == $pModule['permalink']) ? 'active' : $this->router->fetch_method() ?>">
                     <a href="<?= $baseLink;?>" <?= $aAttr; ?>  class="nav-link"><i class="<?php  echo $pModule['class']?>"></i> <span><?= $pModule['module'].((count($childModules)>0) ? '<span class="caret"></span>' :'') ?></span></a>
-                    <?php
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                   <?php
                     if(count($childModules)>0){
                         echo '<ul>';
                         foreach ($childModules as $cModule) {
@@ -51,6 +64,7 @@ $i=1;
                         echo '</ul>';
                     }
                     ?>
+                    </div>
                 </li>
                 <?php
             }
@@ -61,4 +75,10 @@ $i=1;
         </ul>
       </div>
     </div>
+
+    <script>
+      $(".show").click(function(){
+    $(this).css("top","0");//used rotate to see the effect
+});
+      </script>
      

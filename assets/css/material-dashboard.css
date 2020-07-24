@@ -514,6 +514,9 @@ dl {
   margin-bottom: 1rem;
 }
 
+.dropdown ul li{
+  list-style: none;
+}
 ol ol,
 ul ul,
 ol ul,

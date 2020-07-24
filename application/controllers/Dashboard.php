@@ -537,7 +537,11 @@ class Dashboard extends CI_Controller {
         }
             
             $query=$this->callback_model->add_callbacks($data);
-            redirect(base_url().'view_callbacks');
+            if($this->session->userdata('user_type')=='admin')
+            redirect(base_url('admin/').'my_leads');
+            else
+               redirect(base_url().'my_leads');
+
         }
         $data['name'] ="generate";
         $data['heading'] ="Generate";
@@ -640,7 +644,10 @@ class Dashboard extends CI_Controller {
 
         //$data['name'] = "Call back details";
         $data['heading'] = "Call back details";        
-        $this->load->view('callback_details.php',$data);
+        
+        $this->load->view('common_files/header');
+        $this->load->view('users/callback_details.php',$data);
+        $this->load->view('common_files/footer');
     }
 
     public function search_callback($page = 1){

@@ -7,15 +7,48 @@ class my_leads extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
-            $this->load->model('user_model');
+         
+        $this->load->model('leadmodel');
+              $this->load->model('user_model');
         $this->load->model('common_model');
         $this->load->model('callback_model');
-        $this->load->model('leadmodel');
         $this->load->library('session');
-        $this->load->model('login_model'); 
-            // if($this->session->userdata('logged_in')){
-            // }else{redirect("login");}
+        $this->load->model('login_model');
+         $this->load->model('ChatModel');
+
+        if($this->session->userdata('user_id') && $this->session->userdata('is_loggedin') == true && ($this->session->userdata('username') !='admin') )     
+            $this->getPermission($this->session->userdata('user_id'));
+        elseif($this->session->userdata('username') =='admin' && $this->session->userdata('user_type') =='admin')
+        {
+            $mData = $this->login_model->getModulesClause();
+            $tmpArry = array();
+            foreach ($mData as $value) {
+                $tmpArry[] = $value['id'];
+            }
+            $this->session->set_userdata('permissions', json_encode($tmpArry));
+        }
+        elseif($this->session->userdata('user_type') =='admin')
+             $this->getPermission($this->session->userdata('user_id'));
+        else
+            $this->getPermission($this->session->userdata('user_id'));
+
+        if (!$this->session->userdata('is_loggedin')) {
+            redirect(base_url("login"));
+        }
+        elseif($this->router->fetch_method() != "generate_dar") {
+            if ($this->session->userdata('dar_flag'))
+                redirect(base_url("generate_dar"));
+        }
+        $data['user_ids']=$this->user_model->get_city_user_ids(null);
+             //  print_r( $data['user_ids']);exit();
+                $this->session->set_userdata('user_ids',$data['user_ids']);
     }   
+     function getPermission($userId){
+        $this->load->model('login_model');
+        $fetchData = $this->login_model->getModulePermission(['userId' => $userId]);
+        $permission = $fetchData['accessLists'];
+        $this->session->set_userdata('permissions', $permission);
+    }
     
     public function my_leads()
     {
@@ -49,7 +82,7 @@ class my_leads extends CI_Controller {
                         $r->call_back_type,
                         $r->lead_status,
                         $r->date_added,
-                        anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                        anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                         <i class="material-icons">edit</i>
                       <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                     
@@ -86,7 +119,7 @@ class my_leads extends CI_Controller {
                     $r->call_back_type,
                     $r->status_name,
                     $r->inserted_date,
-                    anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                    anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                 
@@ -123,7 +156,7 @@ class my_leads extends CI_Controller {
                         $r->call_back_type,
                         $r->lead_status,
                         $r->date_added,
-                    anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                    anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                 
@@ -164,7 +197,7 @@ class my_leads extends CI_Controller {
                     $r->call_back_type,
                     $r->lead_status,
                     $r->date_added,
-                    anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                    anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                 
@@ -202,7 +235,7 @@ class my_leads extends CI_Controller {
                         $r->call_back_type,
                         $r->lead_status,
                         $r->date_added,
-                    anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                    anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                 
@@ -240,7 +273,7 @@ class my_leads extends CI_Controller {
                                             $r->call_back_type,
                                             $r->lead_status,
                                             $r->date_added,
-                                            anchor('leads/edit_leads/'.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                                            anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                                             <i class="material-icons">edit</i>
                                             <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
                                         

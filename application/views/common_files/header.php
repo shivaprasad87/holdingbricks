@@ -33,11 +33,43 @@ $session=$this->session->userdata();
   <script src="<?php echo base_url();?>/assets/js/footable.min.js"></script>
   <script src="<?php echo base_url();?>/assets/js/footable.js"></script> 
    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" /> -->
-   <link href="<?php echo base_url();?>/assets/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css" />
+<!--    <link href="<?php echo base_url();?>/assets/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css" /> -->
    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
-   
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<link rel="stylesheet" href="https://rawgit.com/KidSysco/jquery-ui-month-picker/v3.0.0/demo/MonthPicker.min.css"/> 
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<script src="https://rawgit.com/KidSysco/jquery-ui-month-picker/v3.0.0/demo/MonthPicker.min.js"></script> 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $('.datepicker').each(function(){
+            $(this).datepicker({
+                dateFormat: 'yy-mm-dd',
+                beforeShow: function() {
+                    setTimeout(function(){
+                        $('.ui-datepicker').css('z-index', 99999999999999);
+                    }, 0);
+                }
+             });
+        });
+        $('#ui-datepicker-div').draggable();
+        $('#c_bkngMnth, #c_estMonthofInvoice').MonthPicker({
+     Button: false
+      });
+        $('.timePicker').each(function(){
+            $(this).timepicker({ 'timeFormat': 'H:i' });
+        });
+    });
+
+ 
+</script> 
   <script>
   var url="<?php echo site_url() ?>";
   </script>

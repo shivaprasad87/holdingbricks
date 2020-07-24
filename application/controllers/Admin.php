@@ -82,7 +82,9 @@ class Admin extends CI_Controller {
 
 
 		$data['all_user'] = $this->user_model->getEmployeesByLimit($offset, VIEW_PER_PAGE);
-		$this->load->view('admin/users',$data);
+		 $this->load->view('common_files/header');
+        $this->load->view('admin/users',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_directors() {
@@ -111,7 +113,10 @@ class Admin extends CI_Controller {
 				redirect('admin/manage_directors');
 		}
 		$data['all_directors'] = $this->user_model->all_users("type=4");
-		$this->load->view('admin/directors',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/directors',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_vps() {
@@ -147,7 +152,10 @@ class Admin extends CI_Controller {
 			redirect('admin/manage_vps');
 		}
 		$data['all_vps'] = $this->user_model->all_vps();
-		$this->load->view('admin/vps',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/vps',$data);
+        $this->load->view('common_files/footer');
 	}
 	
 	public function manage_city_head()
@@ -188,7 +196,10 @@ class Admin extends CI_Controller {
 					
 			}
 			$data['all_city_heads'] = $this->user_model->all_city_heads();
-				$this->load->view('admin/manage_city_head',$data);
+				
+				$this->load->view('common_files/header');
+        $this->load->view('admin/manage_city_head',$data);
+        $this->load->view('common_files/footer');
 			
 		}
 
@@ -224,7 +235,10 @@ class Admin extends CI_Controller {
 			redirect('admin/manage_managers');
 		}
 		$data['all_managers'] = $this->user_model->all_managers();
-		$this->load->view('admin/managers',$data);
+		
+				$this->load->view('common_files/header');
+        $this->load->view('admin/managers',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function generate_target() {
@@ -241,7 +255,10 @@ class Admin extends CI_Controller {
 			$data['success'] = true;
 		}
 		$data['users'] = $this->user_model->all_users("(type='1' OR type='2')");
-		$this->load->view('admin/generate_target',$data);
+		
+				$this->load->view('common_files/header');
+        $this->load->view('admin/generate_target',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function get_target() {
@@ -280,7 +297,10 @@ class Admin extends CI_Controller {
 
 		}
 		$data['intervals'] = $this->callback_model->get_incentive_intervals();
-		$this->load->view('admin/generate_incentive_slab',$data);
+		
+				$this->load->view('common_files/header');
+        $this->load->view('admin/generate_incentive_slab',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function get_incentive_slabs($interval_id) {
@@ -396,7 +416,10 @@ class Admin extends CI_Controller {
 			$data['result'] = false;
 
 		$data['header'] = '';
-		$this->load->view('admin/search_callback',$data);
+		 $this->load->view('common_files/header');
+        $this->load->view('admin/search_callback',$data);
+        $this->load->view('common_files/footer');
+		
 	}
 
 	function revenue_approval($page=1){
@@ -436,7 +459,10 @@ class Admin extends CI_Controller {
 		$config['total_rows'] = $callback_data['total'];
 		$data['result'] = $callback_data['data'];
 		$this->pagination->initialize($config);
-		$this->load->view('admin/revenue_approval',$data);
+		
+		 $this->load->view('common_files/header');
+        $this->load->view('admin/revenue_approval',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function get_notes(){
@@ -1035,7 +1061,10 @@ $customer_req = array(
 		//------ End --------------
 		$data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE);
 
-		$this->load->view('admin/dead_leads',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/dead_leads',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function callbacks() {
@@ -1151,7 +1180,10 @@ $customer_req = array(
 	public function reports(){
 		$data['name'] = "reports";
 		$data['heading'] ="Reports";
-		$this->load->view('reports',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/reports',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function email_report() {
@@ -1697,63 +1729,90 @@ $customer_req = array(
 		$data['name'] ="admin";
 		$data['heading'] ="Manage City";
 		$data['all_cities'] = $this->common_model->all_cities();
-		$this->load->view('admin/cities',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/cities',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_states() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage State";
 		$data['all_states'] = $this->common_model->all_states();
-		$this->load->view('admin/states',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/states',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_depts() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Departments";
 		$data['all_depts'] = $this->common_model->all_depts();
-		$this->load->view('admin/depts',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/depts',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_lead_sources() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Lead Source";
 		$data['all_lead_sources'] = $this->common_model->all_lead_sources();
-		$this->load->view('admin/lead_sources',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/lead_sources',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_projects() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Project";
 		$data['all_projects'] = $this->common_model->all_projects();
-		$this->load->view('admin/projects',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/projects',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_builders() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Builder";
 		$data['all_builders'] = $this->common_model->all_builders();
-		$this->load->view('admin/builders',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/builders',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_brokers() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Broker";
 		$data['all_brokers'] = $this->common_model->all_brokers();
-		$this->load->view('admin/brokers',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/brokers',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_callback_types() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Callback Type";
 		$data['all_callback_types'] = $this->common_model->all_callback_types();
-		$this->load->view('admin/callback_types',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/callback_types',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function manage_status() {
 		$data['name'] ="admin";
 		$data['heading'] ="Manage Status";
 		$data['all_statuses'] = $this->common_model->all_statuses();
-		$this->load->view('admin/statuses',$data);
+		 
+		$this->load->view('common_files/header');
+        $this->load->view('admin/statuses',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	function check_state(){
@@ -2072,7 +2131,10 @@ $customer_req = array(
 	function bulk_generate_callbacks(){
 		$data['name'] ="bulk generate";
 		$data['heading'] ="Bulk Generate";
-		$this->load->view('admin/bulk_generate_callback',$data);
+		$this->load->view('common_files/header');
+        $this->load->view('admin/bulk_generate_callback',$data);
+        $this->load->view('common_files/footer');
+		
 	}
 
 	function bulk_upload_callback() {
@@ -2212,7 +2274,10 @@ $customer_req = array(
 		//------ End --------------
 
       $data['leads'] = $this->common_model->getAll('online_leads',VIEW_PER_PAGE,$offset);
-		$this->load->view('admin/online_leads',$data);
+ 
+		$this->load->view('common_files/header');
+        $this->load->view('admin/online_leads',$data);
+        $this->load->view('common_files/footer');
 	}
 	public function acres99_leads()
 	{
@@ -2617,7 +2682,10 @@ if ($err) {
 		$data['name'] ="admin";
 		$data['heading'] ="Dead Reason";
 		$data['results'] = $this->common_model->getDeadReasons();
-		$this->load->view('admin/deadReason', $data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/deadReason', $data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function add_dead_reason(){
@@ -2792,7 +2860,10 @@ if ($err) {
 			$this->user_model->add_user($savedata);
 		}
 		$data['all_admins'] = $this->user_model->all_admins();
-		$this->load->view('admin/manage_admin', $data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('admin/manage_admin', $data);
+        $this->load->view('common_files/footer');
 	}
 
 	function getPermission($userId){
@@ -3293,7 +3364,12 @@ public function make_user_online($value='')
 				echo "Success";
 		}
 		else
-		$this->load->view('admin/track_users',$data);
+		{
+		$this->load->view('common_files/header');
+        $this->load->view('admin/track_users',$data);
+        $this->load->view('common_files/footer');
+		}
+		
 	}
 
 	public function resitevisit($value='')
@@ -3392,7 +3468,10 @@ public function make_user_online($value='')
 		$data['result'] = $this->callback_model->re_site_visit($offset,VIEW_PER_PAGE,$fromDate,$toDate,$user_id);
 //echo $this->db->last_query();die;
 		//print_r($data);
-		$this->load->view('reports/re_site_visit_by_id',$data);
+		
+		$this->load->view('common_files/header');
+        $this->load->view('reports/re_site_visit_by_id',$data);
+        $this->load->view('common_files/footer');
 	}
 	 
 

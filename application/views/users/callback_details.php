@@ -19,8 +19,8 @@
         } 
 
         .form-control:read-only {
-   height: 100px;
-}
+            height: 100px;
+            }
      
 </style>
 <div class="content">

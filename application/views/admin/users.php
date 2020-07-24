@@ -7,45 +7,52 @@
                 <div class="card-header-primary">
                 <h4> <?=$heading;?> </h4>
                 </div>
+
+                <Style>
+                .mb-2{
+                    margin-bottom:10px;
+                }
+                </style>
                 <div class="card-body">
                         <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add User</button>
     <br>
     <br>
       <div id="myDIV" style="display:none;">
              <form name="save_seller_form" id="save_seller_form" method="POST" enctype="multipart/form-data">
-                <div class="col-sm-6 form-group">
+             <div class="row">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">Employee Code:</label>
                     <input type="text" class="form-control" id="emp_code" onblur="code_check(this.value)" name="emp_code" placeholder="Employee Code" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_first_name">First name:</label>
                     <input type="text" class="form-control" id="emp_first_name" name="first_name" placeholder="Employee first name" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_last_name">Last name:</label>
                     <input type="text" class="form-control" id="emp_last_name" name="last_name" placeholder="Employee last name" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="email">Email Id:</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Employee Enter email" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_dob">D.O.B:</label>
                     <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_doj">D.O.J:</label>
                     <input type="text" class="form-control datepicker" id="emp_doj" name="emp_doj" placeholder="Employee Date Of Joining" readonly required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_last_name">Mobile Number:</label>
                     <input type="text" class="form-control" id="emp_last_name" name="employee_mobile" placeholder="Employee Mobile Number" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_last_name">Address:</label>
                     <textarea name="employee_address"></textarea>
                 </div>
-                <div class="col-md-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">Manager:</label>
                     <select  class="form-control"  id="manager" name="manager" required="required" >
                         <option value="">Select</option>
@@ -56,7 +63,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">User type:</label>
                     <select  class="form-control"  id="select_user" name="select_user" required="required" >
                         <option value="user">User</option>
@@ -64,7 +71,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">Deprtment:</label>
                     <select  class="form-control"  id="user_type" name="department" required="required" >
                         <option value="">Select</option>
@@ -75,7 +82,7 @@
                     </select>
                 </div>
                 
-                <div class="col-md-6 form-group">
+                <div class="col-md-4 form-group mb-2">
                     <label for="emp_code">City:</label>
                     <select  class="form-control"  id="user_type" name="city" required="required" >
                         <option value="">Select</option>
@@ -85,10 +92,10 @@
                         <?php }?>
                     </select>
                 </div>
-
+             </div>
                 <button type="submit" id="add_user" class="btn btn-success btn-block" disabled>Submit</button>
             </form>
-      </div>
+        </div>
 
 <div class="table-responsive">
     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -139,84 +146,90 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Edit User</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit User</h4>
+               
+            </div>    
                 <div class="modal-body">
                     <input type="hidden" id="hid" name="hid">
+                    <div class="row">
                     
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_code">Employee Code:</label>
-                        <input type="text" class="form-control" id="m_emp_code" name="emp_code" placeholder="Employee Code" disabled="disabled">
-                    </div>
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">Employee Code:</label>
+                            <input type="text" class="form-control" id="m_emp_code" name="emp_code" placeholder="Employee Code" disabled="disabled">
+                        </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_code">First name:</label>
-                        <input type="text" class="form-control" id="m_first_name" name="m_first_name" placeholder="First name">
-                    </div>
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">First name:</label>
+                            <input type="text" class="form-control" id="m_first_name" name="m_first_name" placeholder="First name">
+                        </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_code">Last name:</label>
-                        <input type="text" class="form-control" id="m_last_name" name="m_last_name" placeholder="Last name">
-                    </div>
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">Last name:</label>
+                            <input type="text" class="form-control" id="m_last_name" name="m_last_name" placeholder="Last name">
+                        </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_code">Email-id:</label>
-                        <input type="text" class="form-control" id="m_email" name="m_email_id" placeholder="Email id">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                    <label for="emp_last_name">Mobile Number:</label>
-                    <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_last_name">Address:</label>
-                        <textarea id="m_employee_address"name="m_employee_address"></textarea>
-                    </div>
+                        <div class="col-md-6 form-group mb-2">
+                            <label for="emp_code">Email-id:</label>
+                            <input type="text" class="form-control" id="m_email" name="m_email_id" placeholder="Email id">
+                        </div>
 
-                    <div class="col-md-6 form-group">
-                        <label for="emp_code">Manager:</label>
-                        <select  class="form-control"  id="m_manager" name="manager" required="required" >
-                            <option value="">Select</option>
-                            <?php $all_manager=$this->common_model->all_active_managers();
-                            foreach($all_manager as $manager){ ?>
-                                <option value="<?php echo $manager->id; ?>"><?php echo $manager->first_name." ".$manager->last_name; ?></option>
-                            <?php }?>
-                        </select>
-                    </div>
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_last_name">Mobile Number:</label>
+                            <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
+                        </div>
 
-                    <div class="col-md-6 form-group">
-                        <label for="emp_code">User type:</label>
-                        <select  class="form-control"  id="m_select_user" name="select_user" required="required" >
-                            <option value="user">User</option>
-                            <option value="crm">CRM</option>
-                            <option value="manager">Manager</option>
-                            <option value="vp">VP</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
+                        <div class="col-md-6 form-group mb-2">
+                            <label for="emp_last_name">Address:</label>
+                            <textarea id="m_employee_address"name="m_employee_address"></textarea>
+                        </div>
 
-                    <div class="col-md-6 form-group">
-                        <label for="emp_code">Deprtment:</label>
-                        <select  class="form-control"  id="m_dept_id" name="department" required="required" >
-                            <option value="">Select</option>
-                            <?php $all_department=$this->common_model->all_active_departments();
-                            foreach($all_department as $department){ ?>
-                                <option value="<?php echo $department->id; ?>"><?php echo $department->name; ?></option>
-                            <?php }?>
-                        </select>
-                    </div>
-                      
-                    <div class="col-md-6 form-group">
-                        <label for="emp_code">City:</label>
-                        <select  class="form-control"  id="m_city_id" name="city" required="required" >
-                            <option value="">Select</option>
-                            <?php $all_city=$this->common_model->all_active_cities();
-                            foreach($all_city as $city){ ?>
-                                <option value="<?php echo $city->id; ?>"><?php echo $city->name; ?></option>
-                            <?php }?>
-                        </select>
+                        <div class="col-md-6 form-group mb-2">
+                            <label for="emp_code">Manager:</label>
+                            <select  class="form-control"  id="m_manager" name="manager" required="required" >
+                                <option value="">Select</option>
+                                <?php $all_manager=$this->common_model->all_active_managers();
+                                foreach($all_manager as $manager){ ?>
+                                    <option value="<?php echo $manager->id; ?>"><?php echo $manager->first_name." ".$manager->last_name; ?></option>
+                                <?php }?>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">User type:</label>
+                            <select  class="form-control"  id="m_select_user" name="select_user" required="required" >
+                                <option value="user">User</option>
+                                <option value="crm">CRM</option>
+                                <option value="manager">Manager</option>
+                                <option value="vp">VP</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">Deprtment:</label>
+                            <select  class="form-control"  id="m_dept_id" name="department" required="required" >
+                                <option value="">Select</option>
+                                <?php $all_department=$this->common_model->all_active_departments();
+                                foreach($all_department as $department){ ?>
+                                    <option value="<?php echo $department->id; ?>"><?php echo $department->name; ?></option>
+                                <?php }?>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4 form-group mb-2">
+                            <label for="emp_code">City:</label>
+                            <select  class="form-control"  id="m_city_id" name="city" required="required" >
+                                <option value="">Select</option>
+                                <?php $all_city=$this->common_model->all_active_cities();
+                                foreach($all_city as $city){ ?>
+                                    <option value="<?php echo $city->id; ?>"><?php echo $city->name; ?></option>
+                                <?php }?>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
+           
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()">Submit</button>
             </div>

@@ -42,24 +42,26 @@ function permissionModal(id) {
                         var pchk = 'checked';
                     else
                         var pchk = '';
-                    $html +='<fieldset><legend><label class="pm-list">'+
-                        '<input type="checkbox" name="access[]" value="'+val.id+'" '+pchk+'>'+val.module+'</label>';
+                        $html +='<fieldset><legend>';
+                  
+                        $html +='<label class="pm-list">'+
+                        '<input type="checkbox" name="access[]" value="'+val.id+'" '+pchk+'>'+val.module+'</label></legend></fieldset><div class="row">';
                     if(result.chldModules.length)
-                        $html +='<div>';
+                        // $html +='<div>';
                     $.each(result.chldModules, function(key, cval){
                         if(val.id === cval.parentId){
                             if(jQuery.inArray(cval.id, result.userAccess) !== -1)
                                 var chk = 'checked';
                             else
                                 var chk = '';
-                            $html +='<label class="m-list">'+
+                            $html +='<div class="col-md-4 form-group mb-2"><label class="m-list">'+
                                 '<input type="checkbox" name="access[]" value="'+cval.id+'" '+chk+'>'+cval.module+
-                            '</label>';
+                            '</label></div>';
                         } 
                     });   
                     if(result.chldModules.length)
-                        $html +='</div>';                   
-                    $html +='</fieldset></legend>';
+                        // $html +='</div>';                   
+                    $html +='</div>';
                 });
                 $("#modalPermission .userId").val(id);
                 $(".permission-lists").html($html);

@@ -12603,6 +12603,9 @@ fieldset[disabled][disabled] .has-rose .form-control,
 .bmd-form-group input::placeholder {
   line-height: 1.1;
 }
+.bmd-form-group input{
+   margin-top: 33px;
+}
 
 .bmd-form-group label {
   color: #AAAAAA;
@@ -12946,12 +12949,13 @@ select.form-control {
 }
 
 .form-group .bmd-label-static {
-     top: -14px;
+     /* top: -14px; */
     left: 15px;
    
 }
+
 .form-group label {
-  top: -14px;
+  /* top: -14px; */
  left: 15px;
  color: black!important;
 

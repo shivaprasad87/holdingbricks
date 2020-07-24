@@ -141,6 +141,7 @@
       <div id="myDIV" style="display:none;">
     -->
    <div id="myDIV" >
+  
         <form method="POST" id="search_form">
         <div class="col-xs-12 col-sm-12 col-md-12" style="margin-left: 2px;">
             <div class="row">
@@ -238,13 +239,13 @@
                             <?php } ?>               
                         </select>
                     </div>
-                    <div class="col-xs-12 col-md-3">
+                    <div class="col-xs-12 col-md-3 form-group">
                         <div class="form-group">
                             <label>Search:</label>
                             <input type="text" class="form-control" name="srxhtxt" id="srxhtxt" placeholder="Enter search text" value="<?= ($this->session->userdata('SRCHTXT')) ? $this->session->userdata('SRCHTXT') : '' ?>" />
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-3">
+                    <div class="col-xs-12 col-md-3 form-group">
                         <div class="form-group">
                             <label>Due Date</label>
                             <select  class="form-control" name="searchDate" id="searchDate">
@@ -257,10 +258,10 @@
                     </div>
                     <div class="clearfix"></div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 form-group">
                         <button class="btn btn-info btn-block" id="admin-reset"onclick="reset_data()" >Reset</button>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 form-group">
                         <button type="submit" id="admin-search" class="btn btn-success btn-block">Search</button>
                     </div>
             </div>

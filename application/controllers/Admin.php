@@ -2215,7 +2215,10 @@ $customer_req = array(
 				$data['success_callback'] = $count;
 				$data['name'] = "Bulk Upload";
 			$data['heading'] ="Lead Upload"; 
-				$this->load->view('admin/bulk_generate_report',$data);
+			$this->load->view('common_files/header');
+        $this->load->view('admin/bulk_generate_report',$data);
+        $this->load->view('common_files/footer');
+				
 			}
 			else
 				echo "Upload error";
@@ -2265,7 +2268,7 @@ $customer_req = array(
 				}
 			}
 		}
-		redirect(base_url().'admin/callbacks');
+		redirect(base_url().'admin/my_leads');
 	}
 
 	public function online_leads(){

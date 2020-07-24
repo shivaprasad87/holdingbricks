@@ -97,8 +97,8 @@ class leadmodel extends CI_Model {
 
     function get_my_active_leads($id)
     {
-        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type FROM callback C join project p on C.project_id = p.id join lead_source ls on
-        C.status_id=ls.id join callback_type ct on C.callback_type_id = ct.id where C.status_id != "4" and C.status_id  != "5"  ';
+        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type FROM callback C left join project p on C.project_id = p.id left join lead_source ls on
+        C.status_id=ls.id left join callback_type ct on C.callback_type_id = ct.id where C.status_id != "4" and C.status_id  != "5"  ';
 
 
         if($this->session->userdata("user_type")!="admin"){

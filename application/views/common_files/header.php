@@ -115,6 +115,11 @@ label {
     width: 44px;
     height: 35px;
 }
+.m-list input[type="checkbox"],.pm-list input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    margin-right: 16px;
+}
   </style>
   </head>
   <div class="modal fade" id="modalPermission" role="dialog" data-backdrop="static">
@@ -122,9 +127,10 @@ label {
             <!-- Modal content-->
             <form id="privilege-frm" class="" name="" method="post">
                 <div class="modal-content">
-                    <div class="modal-header">                    
+                    <div class="modal-header">        
+                      <h4 class="modal-title">Give Permission</h4>             
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Give Permission</h4> 
+                        
                     </div>
                     <div class="modal-body permission-lists">                        
                             <!-- fetch from ajax jquery -->                        

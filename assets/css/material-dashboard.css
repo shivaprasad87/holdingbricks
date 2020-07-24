@@ -12946,9 +12946,16 @@ select.form-control {
 }
 
 .form-group .bmd-label-static {
-  top: -10px;
+     top: -14px;
+    left: 15px;
+   
 }
+.form-group label {
+  top: -14px;
+ left: 15px;
+ color: black!important;
 
+}
 textarea {
   height: auto !important;
   resize: none;
@@ -16992,7 +16999,7 @@ p
 }
 
 .card .card-body .form-group {
-  margin: 8px 0 0;
+  margin: 15px 0 0;
 }
 
 .card .card-header {

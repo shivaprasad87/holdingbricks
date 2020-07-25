@@ -565,7 +565,7 @@ For any escalation/complaints, please write to: faizan@holdingbricks.com
                                                   <textarea  class="form-control validate[required] "  rows="10"placeholder="Email body" name="cre[body]"> 
  Dear sir/madam,
  
-     Greetings From Full Basket,  
+     Greetings From Holding Bricks,  
 
      Kindly register the below client for  project on behalf of Holding Bricks.
 

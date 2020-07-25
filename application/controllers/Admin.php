@@ -356,7 +356,7 @@ class Admin extends CI_Controller {
 				'email2'=>$email2,
 				'project_id'=>$project,
 				'lead_source_id'=>$lead_source,
-				'leadid'=> trim("PMR-".sprintf("%'.011d",$lead_ids).PHP_EOL),
+				'leadid'=> trim("LNO-".sprintf("%'.011d",$lead_ids).PHP_EOL),
 				'user_id'=>$user_name,
 				'due_date'=>$due_date,
 				'broker_id'=>$sub_broker,
@@ -380,7 +380,7 @@ class Admin extends CI_Controller {
 				'email2'=>$email2,
 				'project_id'=>$project,
 				'lead_source_id'=>$lead_source,
-				'leadid'=> trim("PMR-".sprintf("%'.011d",$lead_ids).PHP_EOL),
+				'leadid'=> trim("LNO-".sprintf("%'.011d",$lead_ids).PHP_EOL),
 				'user_id'=>$user_name,
 				'due_date'=>$due_date,
 				'broker_id'=>$sub_broker,
@@ -2166,7 +2166,7 @@ $customer_req = array(
 				$email1Key = array_search('Email', $keyArray);
 				$email2Key = array_search('Email 2', $keyArray);
 				$leadIdKey = array_search('Lead Id', $keyArray);
-				//$leadIdKey = "PMR - ".sprintf("%'.011d",$lead_ids).PHP_EOL;
+				//$leadIdKey = "LNO - ".sprintf("%'.011d",$lead_ids).PHP_EOL;
 				$notesKey = array_search('Notes', $keyArray);
 				$highestRow = $worksheet->getHighestRow();
 				$newCallbacks = array();
@@ -2197,7 +2197,7 @@ $customer_req = array(
 						'contact_no2'=>trim($contact_no2),
 						'email1'=>trim($email1),
 						'email2'=>trim($email2),
-						'leadid'=>trim("PMR-".sprintf("%'.011d",$lead_ids++).PHP_EOL),
+						'leadid'=>trim("LNO-".sprintf("%'.011d",$lead_ids++).PHP_EOL),
 						'notes'=>trim($notes),
 					);
 					// print_r($data);exit;
@@ -3482,6 +3482,22 @@ public function make_user_online($value='')
 		$this->load->view('common_files/header');
         $this->load->view('reports/re_site_visit_by_id',$data);
         $this->load->view('common_files/footer');
+	}
+	public function backup()
+	{
+		
+		$this->load->dbutil();
+        $prefs = array(     
+                'format'      => 'zip',             
+                'filename'    => 'my_db_backup.sql'
+              );
+        $backup =& $this->dbutil->backup($prefs); 
+        $db_name = 'backup-on-'. date("Y-m-d-H-i-s") .'.zip';
+        $save = '/backup/'.$db_name;
+        $this->load->helper('file');
+        write_file($save, $backup); 
+        $this->load->helper('download');
+        force_download($db_name, $backup); 
 	}
 	 
 

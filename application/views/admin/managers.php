@@ -64,16 +64,16 @@
                     </select>
                 </div>
 
-                <div class="col-md-3 form-group mb-2">
-                    <label for="emp_code">VP:</label>
-                    <select  class="form-control"  id="director" name="director" required="required" >
-                        <option value="">Select</option>
-                        <?php $all_vps=$this->user_model->all_users("(type=3 AND active=1)");
-                        foreach($all_vps as $vp){ ?>
-                            <option value="<?php echo $vp->id; ?>"><?php echo $vp->first_name." ".$vp->last_name; ?></option>
-                        <?php }?>
-                    </select>
-                </div>
+                <div class="col-md-4 form-group mb-2">
+            <label for="emp_code">City Head:</label>
+            <select  class="form-control"  id="director" name="director" required="required" >
+                <option value="">Select</option>
+                <?php $all_director=$this->user_model->all_users("(type=6 AND active=1)");
+                foreach($all_director as $director){ ?>
+                    <option value="<?php echo $director->id; ?>"><?php echo $director->first_name." ".$director->last_name; ?></option>
+                <?php }?>
+            </select>
+        </div>
 
                 <div class="col-sm-12 form-group mb-2">
                     <button type="submit" style="margin-top:25px;" id="add_manager" class="btn btn-success btn-block" disabled>Add Manager</button>
@@ -161,10 +161,10 @@
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <label for="emp_code">VP:</label>
+                            <label for="emp_code">City head:</label>
                             <select  class="form-control"  id="m_vp" name="manager" required="required" >
                                 <option value="">Select</option>
-                                <?php $all_vps=$this->user_model->all_users("(type=3 AND active=1)");
+                                <?php $all_vps=$this->user_model->all_users("(type=6 AND active=1)");
                                 foreach($all_vps as $vp){ ?>
                                     <option value="<?php echo $vp->id; ?>"><?php echo $vp->first_name." ".$vp->last_name; ?></option>
                                 <?php }?>

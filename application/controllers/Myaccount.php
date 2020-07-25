@@ -34,10 +34,12 @@ class myaccount extends CI_Controller {
     function update_Profile()
 	{
 		$user=$this->input->post('user');
-		$whr=array("id"=>$user['user_id']);
+
+		$whr=array("id"=>$user['id']);
 	   $this->commonmodel->update_data("user",$whr,$user);
+     //echo $this->db->last_query();die;
 	   $this->session->set_flashdata('true','User updated successfully !');
-	  	redirect("Mydashboard");
+	  	redirect("myaccount/my_profile");
 	}
 
     public function set_password()

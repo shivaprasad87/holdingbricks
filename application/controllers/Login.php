@@ -95,6 +95,7 @@ class Login extends CI_Controller {
                     'user_type' => 'admin'
                 );
                 $this->session->set_userdata($newdata);
+                //die($newdata);
                 redirect(base_url().'admin');
             }
             else{

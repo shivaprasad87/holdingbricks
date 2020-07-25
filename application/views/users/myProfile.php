@@ -92,6 +92,8 @@
                             <option value="sales"  <?php if($user->type == 1){ echo "selected";} ?>>User</option>
 
                             <option value="manager" <?php if($user->type == 2){ echo "selected";} ?>>Manager</option>
+                            <option value="manager" <?php if($user->type == 4){ echo "selected";} ?>>Director</option>
+                            <option value="manager" <?php if($user->type == 6){ echo "selected";} ?>>City Head</option>
                             <option value="Admin" <?php if($user->type == 5){ echo "selected";} ?>>Admin</option>
                           
                           </select>
@@ -115,7 +117,7 @@
                     </div>
 
                 
-                    <a href="<?php echo site_url("Mydashboard")?>"  class="btn btn-warning pull-right">Cancel</a>
+                    <a href="<?php echo base_url("")?>"  class="btn btn-warning pull-right">Cancel</a>
      
                     <button type="submit" class="btn btn-primary pull-right mr-3">Submit</button>
                     <div class="clearfix"></div>

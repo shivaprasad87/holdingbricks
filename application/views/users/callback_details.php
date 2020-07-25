@@ -82,7 +82,7 @@
                 <div class="col-md-3  ">
                     <input type="hidden" id="mhid" value="<?= $id ?>">
                     <label for="emp_code">Dept:</label>
-                    <select  class="form-control"  id="m_dept" name="m_dept" required disabled>
+                    <select  class="form-control"  id="m_dept" name="m_dept" required <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                         <option value="">Select</option>
                         <?php $all_department=$this->common_model->all_active_departments();
                         foreach($all_department as $department){?>
@@ -92,19 +92,19 @@
                 </div>
                 <div class="col-md-3">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="m_name1" value="<?= $name; ?>" name="m_name1" placeholder="Name" required="required" disabled>
+                    <input type="text" class="form-control" id="m_name1" value="<?= $name; ?>" name="m_name1" placeholder="Name" required="required" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                 </div>
                 <div class="col-md-3">
                     <label for="contact_no1">Contact No:</label>
-                    <input type="text" class="form-control" id="m_contact_no1" value="<?= $contact_no1; ?>" name="m_contact_no1" placeholder="Contact No" disabled>
+                    <input type="text" class="form-control" id="m_contact_no1" value="<?= $contact_no1; ?>" name="m_contact_no1" placeholder="Contact No" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                 </div>
                 <div class="col-md-3">
                     <label for="name">Contact No 2:</label>
-                    <input type="text" class="form-control" id="m_contact_no2" value="<?= $contact_no2; ?>" name="m_contact_no2" placeholder="Contact No" <?php if(!$edit) echo 'disabled'; ?>>
+                    <input type="text" class="form-control" id="m_contact_no2" value="<?= $contact_no2; ?>" name="m_contact_no2" placeholder="Contact No" <?php if(!$edit) echo '<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>'; ?>>
                 </div>
                 <div class="col-md-3  ">
                     <label for="assign">Call back type:</label>
-                    <select  class="form-control"  id="m_callback_type" name="m_callback_type" required="required" disabled>
+                    <select  class="form-control"  id="m_callback_type" name="m_callback_type" required="required" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                         <option value="">Select </option>
                         <?php $all_callback_types=$this->common_model->all_active_callback_types();
                         foreach($all_callback_types as $callbackType){ ?>
@@ -114,15 +114,15 @@
                 </div>
                 <div class="col-md-3">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="m_email1" name="m_email1" value="<?= $email1; ?>" placeholder="Email" disabled>
+                    <input type="email" class="form-control" id="m_email1" name="m_email1" value="<?= $email1; ?>" placeholder="Email" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                 </div>   
                 <div class="col-md-3">
                     <label for="email">Email2:</label>
-                    <input type="email" class="form-control" id="m_email2" name="m_email2" placeholder="email" <?php if(!$edit) echo 'disabled'; ?> value="<?= $email2; ?>">
+                    <input type="email" class="form-control" id="m_email2" name="m_email2" placeholder="email" <?php if(!$edit) echo '<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>'; ?> value="<?= $email2; ?>">
                 </div>
                 <div class="col-md-3  ">
                     <label for="emp_code">Project:</label>
-                    <select  class="form-control"  id="m_project" name="m_project" required="required" disabled>
+                    <select  class="form-control"  id="m_project" name="m_project" required="required" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                         <option value="">Select</option>
                         <?php $projects= $this->common_model->all_active_projects(); 
                         foreach( $projects as $projectData){ ?>
@@ -133,7 +133,7 @@
                 <?php if($this->session->userdata("user_type")!="user") { ?>
                     <div class="col-md-3  ">
                         <label for="assign">Lead Source:</label>
-                        <select  class="form-control"  id="m_lead_source" name="m_lead_source" required="required" disabled>
+                        <select  class="form-control"  id="m_lead_source" name="m_lead_source" required="required" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                             <option value="">Select</option>
                             <?php $leadSource= $this->common_model->all_active_lead_sources(); 
                             foreach( $leadSource as $source){ ?>
@@ -144,11 +144,11 @@
                 <?php } ?>
                 <div class="col-md-3">
                     <label for="leadId">Lead Id:</label>
-                    <input type="text" class="form-control" id="m_leadId" name="m_leadId" placeholder="Lead Id" disabled value="<?= $leadid; ?>" >
+                    <input type="text" class="form-control" id="m_leadId" name="m_leadId" placeholder="Lead Id" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?> value="<?= $leadid; ?>" >
                 </div>
                 <div class="col-md-3  ">
                     <label for="assign">Status:</label>
-                    <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required" <?php if(!$edit) echo 'disabled'; ?>>
+                    <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required" <?php if(!$edit) echo '<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>'; ?>>
                         <option value="">Select</option>
                         <?php $statuses= $this->common_model->all_active_statuses(); 
                         foreach( $statuses as $status){ ?>
@@ -159,7 +159,7 @@
                 <div class="col-md-3  ">
                     <label for="assign">Assign To:</label>
                     <input type="hidden" id="hidden_user_id" name="hidden_user_id" value="<?= $user_name;?>">
-                    <select  class="form-control"  id="m_user_name" name="m_user_name" required="required"  <?php if(!$edit) echo 'disabled'; ?>>
+                    <select  class="form-control"  id="m_user_name" name="m_user_name" required="required"  <?php if(!$edit) echo '<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>'; ?>>
                         <option value="">Select</option>
                         <?php if($edit){ ?>
                             <option value="<?php echo $this->session->userdata("user_id"); ?>" <?php echo ($this->session->userdata("user_id") == $user_name) ? 'selected' : ''; ?>><?php echo $this->session->userdata("user_name"); ?></option>
@@ -215,7 +215,7 @@
                 <?php if($this->session->userdata("user_type")!="user") { ?>
                     <div class="col-md-3  ">
                         <label for="email">Sub Source:</label>
-                        <select  class="form-control"  id="c_subSource" name="c_subSource" disabled>
+                        <select  class="form-control"  id="c_subSource" name="c_subSource" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>>
                             <option value="">Select</option>
                             <?php $brokers= $this->common_model->all_active_brokers(); 
                             foreach( $brokers as $broker){ ?>
@@ -850,7 +850,7 @@ Team Holding Bricks
             <div class="clearfix"></div>
             <br> 
             <div class="container">                
-                <button type="submit" class="btn btn-success" onclick="update_callback_details()" id="save" disabled style="width: 150px">Save</button>
+                <button type="submit" class="btn btn-success" onclick="update_callback_details()" id="save" <?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?> style="width: 150px">Save</button>
             </div>
         </div>
         <input type="hidden" id="extraDataIds" value="<?= $this->session->userdata('siteVisitIds'); ?>">
@@ -1103,10 +1103,10 @@ $(document).ready(function() {
         }
 
         if(!error){
-            $('#save').prop('disabled', false);
+            $('#save').prop('<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>', false);
         }
         else{
-            $('#save').prop('disabled', true);
+            $('#save').prop('<?php if($this->session->userdata("user_type")=="admin"){ echo "";} else{ echo "disabled";}?>', true);
         }
     }
     var notesClient = "Greetings From Fullbasket Property.\n\nWith reference to your site visit on {site_visit_date} assisted by Mr. {site_assigned_by} from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr. {relationship_manager} from FBP will be at your service. He/she will be there to assist you in searching your dream home.\n\n1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.\n\n2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.\n\n3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.\n\n4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.\n\n5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.\n\n\nFor any escalations/ complaints please write to admin@leads.com\n\nRegards\n\nTeam Fullbasket Property Services Pvt Ltd";

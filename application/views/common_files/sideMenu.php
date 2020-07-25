@@ -30,7 +30,7 @@ $i=1;
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  <?php if($uri == ''){echo"active";}elseif($this->session->userdata('user_type') == 'admin' && empty($this->uri->segment(2))){echo"active";}else{ echo'';}?> ">
-            <a class="nav-link" href="<?php if($uri == 'admin')echo site_url('admin'); else echo site_url('');?>">
+            <a class="nav-link" href="<?php if($uri == 'admin')echo base_url('admin'); else echo base_url('');?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>

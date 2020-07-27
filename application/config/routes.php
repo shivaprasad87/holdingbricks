@@ -81,6 +81,7 @@ $route['chat']="ChatController";
 $route['get-chat-history-vendor']="ChatController/get_chat_history_by_vendor";
 $route['make_user_online']="ChatController/make_user_online";
 $route['send-message']="ChatController/send_text_message";
+$route['permission_lists']="admin/permission_lists";
 $route['admin/chat']="admin/chat";
 $route['admin/get-chat-history-vendor']="admin/get_chat_history_by_vendor";
 $route['admin/send-message']="admin/send_text_message";

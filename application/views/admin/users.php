@@ -14,7 +14,7 @@
                 }
                 </style>
                 <div class="card-body">
-                        <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add User</button>
+                        <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?=$heading;?></button>
     <br>
     <br>
       <div id="myDIV" style="display:none;">

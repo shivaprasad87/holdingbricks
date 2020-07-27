@@ -8,7 +8,7 @@
                 <h4> <?=$heading;?> </h4>
                 </div>
                 <div class="card-body">
-                        <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add User</button>
+                        <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Manager</button>
     <br>
     <br>
     <div id="myDIV" style="display:none;">

@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
 
 	public function manage_users() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage User";
+		$data['heading'] ="Create User";
 		if($this->input->post()){
 			$first_name=$this->input->post('first_name');
 			$last_name=$this->input->post('last_name');
@@ -96,7 +96,7 @@ class Admin extends CI_Controller {
 
 	public function manage_directors() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Director";
+		$data['heading'] ="Create Director";
 		if($this->input->post()){
 			$first_name=$this->input->post('first_name');
 			$last_name=$this->input->post('last_name');
@@ -168,7 +168,7 @@ class Admin extends CI_Controller {
 	public function manage_city_head()
 		{
 			$data['name'] ="admin";
-			$data['heading'] ="Manage City Head";
+			$data['heading'] ="Create Branch head";
 			if($this->input->post())
 			{
 				$first_name=$this->input->post('first_name');
@@ -212,7 +212,7 @@ class Admin extends CI_Controller {
 
 	public function manage_managers() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Manager";
+		$data['heading'] =" Create Manager";
 		if($this->input->post()){
 			$first_name=$this->input->post('first_name');
 			$last_name=$this->input->post('last_name');
@@ -1734,7 +1734,7 @@ $customer_req = array(
 
 	public function manage_cities() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage City";
+		$data['heading'] ="Add City";
 		$data['all_cities'] = $this->common_model->all_cities();
 		
 		$this->load->view('common_files/header');
@@ -1744,7 +1744,7 @@ $customer_req = array(
 
 	public function manage_states() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage State";
+		$data['heading'] ="Add State";
 		$data['all_states'] = $this->common_model->all_states();
 		
 		$this->load->view('common_files/header');
@@ -1754,7 +1754,7 @@ $customer_req = array(
 
 	public function manage_depts() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Departments";
+		$data['heading'] ="Add Department";
 		$data['all_depts'] = $this->common_model->all_depts();
 		
 		$this->load->view('common_files/header');
@@ -1764,7 +1764,7 @@ $customer_req = array(
 
 	public function manage_lead_sources() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Lead Source";
+		$data['heading'] ="Add Lead Source";
 		$data['all_lead_sources'] = $this->common_model->all_lead_sources();
 		
 		$this->load->view('common_files/header');
@@ -1774,7 +1774,7 @@ $customer_req = array(
 
 	public function manage_projects() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Project";
+		$data['heading'] ="Add Projects";
 		$data['all_projects'] = $this->common_model->all_projects();
 		
 		$this->load->view('common_files/header');
@@ -1784,7 +1784,7 @@ $customer_req = array(
 
 	public function manage_builders() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Builder";
+		$data['heading'] ="Add Builder";
 		$data['all_builders'] = $this->common_model->all_builders();
 		
 		$this->load->view('common_files/header');
@@ -1794,7 +1794,7 @@ $customer_req = array(
 
 	public function manage_brokers() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Broker";
+		$data['heading'] ="Add Business Associates";
 		$data['all_brokers'] = $this->common_model->all_brokers();
 		
 		$this->load->view('common_files/header');
@@ -1804,7 +1804,7 @@ $customer_req = array(
 
 	public function manage_callback_types() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Callback Type";
+		$data['heading'] ="Add callback Type";
 		$data['all_callback_types'] = $this->common_model->all_callback_types();
 		
 		$this->load->view('common_files/header');
@@ -1814,7 +1814,7 @@ $customer_req = array(
 
 	public function manage_status() {
 		$data['name'] ="admin";
-		$data['heading'] ="Manage Status";
+		$data['heading'] ="Add Status";
 		$data['all_statuses'] = $this->common_model->all_statuses();
 		 
 		$this->load->view('common_files/header');
@@ -2137,7 +2137,7 @@ $customer_req = array(
 
 	function bulk_generate_callbacks(){
 		$data['name'] ="bulk generate";
-		$data['heading'] ="Bulk Generate";
+		$data['heading'] ="Bulk Lead Upload";
 		$this->load->view('common_files/header');
         $this->load->view('admin/bulk_generate_callback',$data);
         $this->load->view('common_files/footer');
@@ -2690,7 +2690,7 @@ if ($err) {
 
 	public function dead_reason(){
 		$data['name'] ="admin";
-		$data['heading'] ="Dead Reason";
+		$data['heading'] ="Add dead reasons";
 		$data['results'] = $this->common_model->getDeadReasons();
 		
 		$this->load->view('common_files/header');

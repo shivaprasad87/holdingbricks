@@ -137,7 +137,7 @@
     cursor: pointer;
 }
    </style>
-   <!-- <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add User</button>
+   <!-- <button class="plus"  onclick="myFunction()"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?=$heading;?></button>
       <div id="myDIV" style="display:none;">
     -->
    <div id="myDIV" >

@@ -33,7 +33,7 @@ function permissionModal(id) {
         $html = '';
         $.ajax({
             type:"POST",
-            url: <?=base_url('admin');?>+"/permission_lists",
+            url: BASE_URL+"admin/permission_lists",
             data:{id:id},
             success:function(data) {   
                 var result = JSON.parse(data);

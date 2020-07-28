@@ -187,7 +187,7 @@ label {
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account 
-                  </p><?php echo $session['user_name'];?>
+                  </p><?php if($session['user_name']=='admin test'){echo "Administrator";}else{echo $session['user_name'];}?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <!-- <a class="dropdown-item" href="#">Profile</a>

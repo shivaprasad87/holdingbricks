@@ -28,7 +28,7 @@ class User_model extends CI_Model {
             $config = email_config();
 
             $this->email->initialize($config);
-            $this->email->from("admin@leads.com", "Admin");
+            $this->email->from("hr@holdingbricks.com", "Admin");
             $this->email->to($data['email']);
             $this->email->subject("Welcome to Holding Bricks");
             $this->email->message("Welcome to Holding Bricks CRM System,<br><br>Your user name is ".$data['emp_code']." And password is ".$data['emp_code']." by using them please login to the tool with the following link: <a href=\"https://holdingbricks.com/sales/\" >https://holdingbricks.com/sales/</a> <br><br>Regards Holding Bricks IT team");
@@ -231,7 +231,7 @@ class User_model extends CI_Model {
             ->where("type in ('3','4','5')")
             ->get()->result();
         
-        $exceptions = array("admin@leads.com","admin@leads.com", "test@secondsdigital.com");
+        $exceptions = array("admin@leads.com");
         $emails = array();
         foreach ($users as $key => $value) {
           if($value->email)

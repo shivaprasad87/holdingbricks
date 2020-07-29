@@ -854,7 +854,8 @@ $customer_req = array(
 			$this->email->set_mailtype("html");
 
 			if($to){
-				$this->email->from($this->session->userdata('user_email'), $this->session->userdata('user_name'));
+				//$this->email->from($this->session->userdata('user_email'), $this->session->userdata('user_name'));
+				$this->email->from($client_email);
 				$this->email->to($to);
 
 				$this->email->subject($subject);

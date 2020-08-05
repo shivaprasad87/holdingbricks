@@ -42,10 +42,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_cities) && $all_cities){
+            <?php 
+            $i=1;
+            if(isset($all_cities) && $all_cities){
                 foreach($all_cities as $city){ ?>
                     <tr>
-                        <td><?php echo $city->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $city->name; ?></td>
                         <td><?php echo $city->state_name; ?></td>
                         <td><?php echo $city->date_added; ?></td>

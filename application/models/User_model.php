@@ -32,7 +32,9 @@ class User_model extends CI_Model {
             $this->email->to($data['email']);
             $this->email->subject("Welcome to Holding Bricks");
             $this->email->message("Welcome to Holding Bricks CRM System,<br><br>Your user name is ".$data['emp_code']." And password is ".$data['emp_code']." by using them please login to the tool with the following link: <a href=\"https://holdingbricks.com/sales/\" >https://holdingbricks.com/sales/</a> <br><br>Regards Holding Bricks IT team");
-            $this->email->send();
+            $bool = $this->email->send();
+            if(!$bool)
+                echo $this->email->print_debugger();die;
         }
     }
 

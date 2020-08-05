@@ -116,8 +116,8 @@ class Admin extends CI_Controller {
 				'mobile_number' => $mobile,
 				'address' =>$address 
 			);
-			echo $this->user_model->add_user($savedata);die;
-				//redirect('admin/manage_directors');
+			$this->user_model->add_user($savedata);
+				 redirect('admin/manage_directors');
 		}
 		$data['all_directors'] = $this->user_model->all_users("type=4");
 		

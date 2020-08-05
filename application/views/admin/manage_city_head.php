@@ -78,7 +78,7 @@
         </div>
 
         <div class="col-sm-12 form-group">
-            <button type="submit" style="margin-top:25px;" id="add_manager" class="btn btn-success btn-block" disabled>Add City Head</button>
+            <button type="submit" style="margin-top:25px;" id="add_manager" class="btn btn-success btn-block" disabled>Add Branch Head</button>
         </div>
     </form>
     <div class="table-responsive">
@@ -100,10 +100,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_city_heads) && $all_city_heads){
+            <?php
+            $i=1;
+             if(isset($all_city_heads) && $all_city_heads){
                 foreach($all_city_heads as $city_head){?>
                     <tr>
-                        <td><?php echo $city_head->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $city_head->first_name." ".$city_head->last_name; ?></td>
                         <td><?php echo $city_head->email; ?></td>
                         <td><?php echo $city_head->city_name; ?></td>
@@ -130,7 +132,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title">Edit City Head</h4>
+            <h4 class="modal-title">Edit Branch Head</h4>
              
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>

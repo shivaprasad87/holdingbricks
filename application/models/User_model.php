@@ -43,7 +43,7 @@ class User_model extends CI_Model {
 
         }
             }
-    }
+    
 
     public function all_admins(){        
         $query=$this->db->get_where('user', ['type'=>5, 'emp_code !='=>'admin']);

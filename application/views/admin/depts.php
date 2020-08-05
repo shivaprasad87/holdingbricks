@@ -34,10 +34,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_depts) && $all_depts){
+            <?php
+            $i=1;
+             if(isset($all_depts) && $all_depts){
                 foreach($all_depts as $dept){ ?>
                     <tr>
-                        <td><?php echo $dept->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $dept->name; ?></td>
                         <td><?php echo $dept->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $dept->id; ?>" class="btn <?php echo $dept->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $dept->id; ?>)"><span id="deptus_sp_<?php echo $dept->id; ?>"><?php echo $dept->active?'Active':'Inactive'; ?></span></button></td>

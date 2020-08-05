@@ -41,10 +41,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_statuses) && $all_statuses){
+            <?php
+            $i=1;
+             if(isset($all_statuses) && $all_statuses){
                 foreach($all_statuses as $status){ ?>
                     <tr>
-                        <td><?php echo $status->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $status->name; ?></td>
                         <td><?php echo $status->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $status->id; ?>" class="btn <?php echo $status->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $status->id; ?>)"><span id="statusus_sp_<?php echo $status->id; ?>"><?php echo $status->active?'Active':'Inactive'; ?></span></button></td>

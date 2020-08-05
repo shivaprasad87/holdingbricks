@@ -27,10 +27,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_brokers) && $all_brokers){
+            <?php
+            $i=1;
+             if(isset($all_brokers) && $all_brokers){
                 foreach($all_brokers as $broker){ ?>
                     <tr>
-                        <td><?php echo $broker->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $broker->name; ?></td>
                         <td><?php echo $broker->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $broker->id; ?>" class="btn <?php echo $broker->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $broker->id; ?>)"><span id="brokerus_sp_<?php echo $broker->id; ?>"><?php echo $broker->active?'Active':'Inactive'; ?></span></button></td>

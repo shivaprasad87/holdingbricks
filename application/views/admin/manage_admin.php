@@ -55,10 +55,12 @@
                                 </tr>
                             </thead> 
                             <tbody>
-                                <?php if(isset($all_admins) && $all_admins){
+                                <?php
+            $i=1;
+             if(isset($all_admins) && $all_admins){
                                     foreach($all_admins as $admin){?>
                                         <tr>
-                                            <td><?php echo $admin->id; ?></td>
+                                            <td><?php echo $i++; ?></td>
                                             <td><?php echo $admin->first_name." ".$admin->last_name; ?></td>
                                             <td><?php echo $admin->email; ?></td>                        
                                             <td><?php echo $admin->emp_code; ?></td>

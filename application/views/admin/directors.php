@@ -66,10 +66,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_directors) && $all_directors){
+            <?php
+            $i=1;
+             if(isset($all_directors) && $all_directors){
                 foreach($all_directors as $Director){?>
                     <tr>
-                        <td class="priority-1"><?php echo $Director->id; ?></td>
+                        <td class="priority-1"><?php echo $i++; ?></td>
                         <td class="priority-2"><?php echo $Director->first_name." ".$Director->last_name; ?></td>
                         <td class="priority-3"><?php echo $Director->email; ?></td>
                         <td class="priority-4"><?php echo $Director->emp_code; ?></td>

@@ -101,10 +101,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_managers) && $all_managers){
+            <?php
+            $i=1;
+             if(isset($all_managers) && $all_managers){
                 foreach($all_managers as $manager){?>
                     <tr>
-                        <td class="priority-1"><?php echo $manager->id; ?></td>
+                        <td class="priority-1"><?php echo $i++; ?></td>
                         <td class="priority-2"><?php echo $manager->first_name." ".$manager->last_name; ?></td>
                         <td class="priority-3"><?php echo $manager->email; ?></td>
                         <td class="priority-4"><?php echo $manager->city_name; ?></td>

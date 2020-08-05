@@ -29,10 +29,13 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_lead_sources) && $all_lead_sources){
+            <?php
+
+            $i=1;
+             if(isset($all_lead_sources) && $all_lead_sources){
                 foreach($all_lead_sources as $lead_source){ ?>
                     <tr>
-                        <td><?php echo $lead_source->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $lead_source->name; ?></td>
                         <td><?php echo $lead_source->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $lead_source->id; ?>" class="btn <?php echo $lead_source->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $lead_source->id; ?>)"><span id="lead_sourceus_sp_<?php echo $lead_source->id; ?>"><?php echo $lead_source->active?'Active':'Inactive'; ?></span></button></td>

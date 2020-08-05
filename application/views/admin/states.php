@@ -27,10 +27,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_states) && $all_states){
+            <?php
+            $i=1;
+             if(isset($all_states) && $all_states){
                 foreach($all_states as $state){ ?>
                     <tr>
-                        <td><?php echo $state->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $state->name; ?></td>
                         <td><?php echo $state->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $state->id; ?>" class="btn <?php echo $state->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $state->id; ?>)"><span id="stateus_sp_<?php echo $state->id; ?>"><?php echo $state->active?'Active':'Inactive'; ?></span></button></td>

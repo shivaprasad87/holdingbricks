@@ -99,10 +99,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_vps) && $all_vps){
+            <?php
+            $i=1;
+             if(isset($all_vps) && $all_vps){
                 foreach($all_vps as $vp){?>
                     <tr>
-                        <td class="priority-1"><?php echo $vp->id; ?></td>
+                        <td class="priority-1"><?php echo $i++; ?></td>
                         <td class="priority-2"><?php echo $vp->first_name." ".$vp->last_name; ?></td>
                         <td class="priority-3"><?php echo $vp->email; ?></td>
                         <td class="priority-4"><?php echo $vp->city_name; ?></td>

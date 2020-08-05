@@ -113,10 +113,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_user)){
+            <?php
+            $i=1;
+             if(isset($all_user)){
                 foreach($all_user as $user){ ?>
                     <tr>
-                        <td class="priority-1" style="width:30%;"><?php echo $user->id; ?></td>
+                        <td class="priority-1" style="width:30%;"><?php echo $i++; ?></td>
                         <td class="priority-2" style="width:30%;"><?php echo $user->emp_code; ?></td>
                         <td class="priority-3" style="width:30%;"><?php echo $user->first_name.' '.$user->last_name; ?></td> 
                         <td class="priority-5" style="width:30%;"><?php echo $user->email; ?></td>

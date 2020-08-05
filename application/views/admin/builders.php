@@ -35,10 +35,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_builders) && $all_builders){
+            <?php
+            $i=1;
+             if(isset($all_builders) && $all_builders){
                 foreach($all_builders as $builder){ ?>
                     <tr>
-                        <td><?php echo $builder->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $builder->name; ?></td>
                         <td><?php echo $builder->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $builder->id; ?>" class="btn <?php echo $builder->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $builder->id; ?>)"><span id="builderus_sp_<?php echo $builder->id; ?>"><?php echo $builder->active?'Active':'Inactive'; ?></span></button></td>

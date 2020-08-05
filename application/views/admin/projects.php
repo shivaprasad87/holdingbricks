@@ -41,10 +41,12 @@
             </tr>
         </thead> 
         <tbody>
-            <?php if(isset($all_projects) && $all_projects){
+            <?php
+            $i=1;
+             if(isset($all_projects) && $all_projects){
                 foreach($all_projects as $project){ ?>
                     <tr>
-                        <td><?php echo $project->id; ?></td>
+                        <td><?php echo $i++; ?></td>
                         <td><?php echo $project->name; ?></td>
                         <td><?php echo $project->builder_name; ?></td>
                         <td><?php echo $project->date_added; ?></td>

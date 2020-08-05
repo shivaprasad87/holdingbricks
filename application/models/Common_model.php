@@ -447,7 +447,7 @@ class Common_model extends MY_Model {
             }
         }
 
-           function updateWhere($where,$data=1,$table_name='online_leads')
+           function updateWhere_leadid($where,$data=1,$table_name='online_leads')
             {
 
               foreach ($where as $leadid) {

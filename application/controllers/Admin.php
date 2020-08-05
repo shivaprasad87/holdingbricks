@@ -2271,7 +2271,6 @@ $customer_req = array(
 		}
 		redirect(base_url().'admin/my_leads');
 	}
-
 	public function online_leads(){
 		$data['name'] ="more";
 		$data['heading'] ="Online Callbacks";
@@ -2284,12 +2283,28 @@ $customer_req = array(
         $offset = !$page ? 0 : $page;
 		//------ End --------------
 
-      $data['leads'] = $this->common_model->getAll('online_leads',VIEW_PER_PAGE,$offset);
- 
+      $data['leads'] = $this->common_model->getWhere(array('saved'=>0),'online_leads',VIEW_PER_PAGE,$offset);
 		$this->load->view('common_files/header');
         $this->load->view('admin/online_leads',$data);
-        $this->load->view('common_files/footer');
-	}
+        $this->load->view('common_files/footer');	}
+	// public function online_leads(){
+	// 	$data['name'] ="more";
+	// 	$data['heading'] ="Online Callbacks";
+		
+	// 	// $data['projects']= $this->common_model->all_active_projects();
+	// 	$rowCount 				=$this->common_model->countAll('online_leads');
+	// 	$data["totalRecords"] 	= $rowCount;
+	// 	$data["links"] 			= paginitaion(base_url().'admin/online_leads/', 3,VIEW_PER_PAGE, $rowCount);
+	// 	$page = $this->uri->segment(3);
+ //        $offset = !$page ? 0 : $page;
+	// 	//------ End --------------
+
+ //      $data['leads'] = $this->common_model->getAll('online_leads',VIEW_PER_PAGE,$offset);
+ 
+	// 	$this->load->view('common_files/header');
+ //        $this->load->view('admin/online_leads',$data);
+ //        $this->load->view('common_files/footer');
+	// }
 	public function acres99_leads()
 	{
 		
@@ -2459,10 +2474,8 @@ $customer_req = array(
 
 		public function fetch_99acre_online_leads(){
 		$url =  "https://www.99acres.com/99api/v1/getmy99Response/OeAuXClO43hwseaXEQ/uid/";
-		//$data = $this->common_model->load_l_s_credentials('99acre');
-		//print_r($data);die;
-		$username = 'city.99';
-		$password = 'Shashank1986';
+		$username = '';
+		$password = '';
 		$start_date = date("Y-m-d 00:00:00", strtotime('-1 days'));
 		$end_date = date("Y-m-d 23:59:59");
 		$request = "<?xml version='1.0'?><query><user_name>$username</user_name><pswd>$password</pswd><start_date>$start_date</start_date><end_date>$end_date</end_date></query>";
@@ -2520,20 +2533,23 @@ $customer_req = array(
 	public function save_online_leads(){
 
 		$error=0;
-		$ext='';
+		$ext='online_leads';
+		$p_id['id']='';
 		if($this->input->post()){
-			$dept=$this->input->post('dept');
-			$callback_type=$this->input->post('callback_type');
+			$dept=$this->input->post('dept')?$this->input->post('dept'):1;
+			$callback_type=$this->input->post('callback_type')?$this->input->post('callback_type'):1;
 			$user=$this->input->post('user');
-			$broker=$this->input->post('broker');
-			$status=$this->input->post('status');
-			$due_date=$this->input->post('due_date');
-			$due_time=$this->input->post('due_time');
+			$broker=$this->input->post('broker')?$this->input->post('broker'):14;
+			$status=$this->input->post('status')?$this->input->post('status'):1;
+			$due_date=$this->input->post('due_date')?$this->input->post('due_date'):date('Y-m-d');
+			$due_time=$this->input->post('due_time')?$this->input->post('due_time'):date('H:i');
 			$checked=$this->input->post('check');
+			$project_id=$this->input->post('project');
 
 			foreach ($checked as $key) {
 				$return[] = $key;
 				$lead_data = $this->common_model->getFromId($key, 'id', 'online_leads');
+
 				if($lead_data->source=='99acres')
 				{
 				$p_id=$this->common_model->get_project_id_by_name($lead_data->project,1);
@@ -2554,20 +2570,21 @@ $customer_req = array(
 				}
 				else
 				{
-					//$p_id=703;
+					$p_id=704;
 				}
 				//echo $lead_data->project. $p_id['id'];die;
 				$data=$this->common_model->getsourceId($lead_data->source);
-
+				$lead_ids = json_decode(json_encode($this->callback_model->get_last_id()),true);
+			$lead_ids = $lead_ids['id']+1;
 				$data=array(
 					'dept_id'=>$dept,
 					'name'=>$lead_data->name,
 					'contact_no1'=>$lead_data->phone,
 					'callback_type_id'=>$callback_type,
 					'email1'=>$lead_data->email,
-					'project_id'=>$p_id['id'],
-					'lead_source_id'=>$data['id'],
-					'leadid'=>$lead_data->leadid,
+					'project_id'=>$project_id,
+					'lead_source_id'=>1,
+					'leadid'=> trim("LNO-".sprintf("%'.011d",$lead_ids).PHP_EOL),
 					'user_id'=>$user,
 					'due_date'=>$due_date,
 					'broker_id'=>$broker,
@@ -2588,25 +2605,26 @@ $customer_req = array(
 					//$ext='admin/'.$this->session->userdata('ext');
 					//$this->load->view('admin/online_leads');
 				}
-				$this->common_model->updateWhere(array('id'=>$lead_data->id));
 
+				$this->common_model->updateWhere_leadid(array('id'=>$lead_data->id));
+				//echo $this->db->last_query();die;
 				//echo json_encode($return);
 			}
-			if($data['lead_source_id']==30)
-			{
-					$ext="acres99_leads";
-					$this->session->set_userdata('ext',$ext);
-			}
-				elseif($data['lead_source_id']==29)
-				{
-					$ext="magicbricks_leads";
-					$this->session->set_userdata('ext',$ext);
-				}
-				elseif($data['lead_source_id']==32)
-				{
-					$ext="commonfloor_leads";
-					$this->session->set_userdata('ext',$ext);
-				}
+			// if($data['lead_source_id']==30)
+			// {
+			// 		$ext="acres99_leads";
+			// 		$this->session->set_userdata('ext',$ext);
+			// }
+			// 	elseif($data['lead_source_id']==29)
+			// 	{
+			// 		$ext="magicbricks_leads";
+			// 		$this->session->set_userdata('ext',$ext);
+			// 	}
+			// 	elseif($data['lead_source_id']==32)
+			// 	{
+			// 		$ext="commonfloor_leads";
+			// 		$this->session->set_userdata('ext',$ext);
+			// 	}
 				//echo site_url()
 				if($error==0)
 				echo "<script>alert('added successfully');location.href='".base_url().'admin/'.$ext."'</script>";
@@ -3325,7 +3343,7 @@ if ($err) {
 		$lead_id =  $this->uri->segment(3);
 		$controller_name= $this->uri->segment(4);
 		$lead_id = array('id'=>$lead_id);
-		$bool = $this->common_model->updateWhere($lead_id);
+		$bool = $this->common_model->updateWhere_leadid($lead_id);
 		if($bool)
 		{
 			echo "<script>location.href='".base_url().'admin/'.$controller_name."';</script>";

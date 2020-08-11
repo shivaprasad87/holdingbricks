@@ -85,6 +85,7 @@ $route['permission_lists']="admin/permission_lists";
 $route['admin/chat']="admin/chat";
 $route['admin/get-chat-history-vendor']="admin/get_chat_history_by_vendor";
 $route['admin/send-message']="admin/send_text_message";
+$route['post_module_permission']="admin/post_module_permission";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['feedback'] = 'FeedbackController';

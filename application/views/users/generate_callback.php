@@ -142,7 +142,12 @@
                           <label class="bmd-label-floating select-label">Assign to <span class="text-danger">*</span></label>
                         <select class="form-control    " name="user_name">
                         <option value="">--select--</option>
-                        <?php $all_user= $this->user_model->all_users("type in (1,2,3,4)"); 
+                        <?php
+
+                        if($this->session->userdata('user_type')!='user')
+                        {
+                         $all_user= $this->user_model->all_users("type in (1,2,3,4)"); 
+                       
                     foreach( $all_user as $user){ 
                         switch ($user->type) {
                             case '1':
@@ -163,7 +168,12 @@
                         }
                         ?>
                         <option value="<?php echo $user->id ?>"><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
-                    <?php } ?>  
+                    <?php }
+                    }
+                    else
+                    {
+                      echo "<option value=".$this->session->userdata('user_id').">".$this->session->userdata('user_name')."</option>";
+                    } ?>  
                                                                   </select>
                         </div>
                       </div>

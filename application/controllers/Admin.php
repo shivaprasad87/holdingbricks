@@ -388,9 +388,12 @@ class Admin extends CI_Controller {
 				'notes'=>$notes,
 				'date_added'=>date('Y-m-d H:i:s'),
 			); 
-			}
+			} 
 			$query=$this->callback_model->add_callbacks($data);
-			redirect(base_url().'admin/callbacks');
+			if($this->session->userdata('user_type')=='admin')
+            redirect(base_url('admin/').'my_leads');
+            else
+               redirect(base_url().'my_leads');
 		}
 		$data['name'] ="generate";
 		$data['heading'] ="Generate";

@@ -84,7 +84,7 @@ class my_leads extends CI_Controller {
                         $r->date_added,
                         anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                         <i class="material-icons">edit</i>
-                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),
+                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),
                     
 
                      

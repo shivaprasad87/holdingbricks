@@ -499,7 +499,7 @@ class Dashboard extends CI_Controller {
                 'contact_no1'=>$contact_no1,
                 'contact_no2'=>$contact_no2,
                 'callback_type_id'=>$callback_type,
-                'email1'=>$email1,
+                'email1'=>$email1?$email1:'',
                 'email2'=>$email2,
                 'project_id'=>$project,
                 'lead_source_id'=>$lead_source,

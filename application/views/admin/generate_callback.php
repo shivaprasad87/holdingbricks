@@ -6,7 +6,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">GENERATE LEADS</h4> 
                 </div>
-                <form action="<?php echo base_url()?>generate_callback"  class="common_valid " method="post" accept-charset="utf-8">
+                <form action="<?php echo base_url('admin/')?>generate_callback"  class="common_valid " method="post" accept-charset="utf-8">
                
                 <div class="card-body mt-3">
                  

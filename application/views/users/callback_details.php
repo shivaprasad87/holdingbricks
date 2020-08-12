@@ -455,7 +455,7 @@ For any escalation/complaints, please write to: faizan@holdingbricks.com
 </div>
                 <div class="clearfix"></div>
 
-               <div class="col-sm-12 clint_req" style="background: #b9bdc04f;margin-bottom: 30px; padding-bottom: 10px;" >
+               <!-- <div class="col-sm-12 clint_req" style="background: #b9bdc04f;margin-bottom: 30px; padding-bottom: 10px;" >
                     <h1 class="text-center" >Client Requirement</h1>
                     <div class="row">
                     <div class="col-md-3">
@@ -538,7 +538,7 @@ For any escalation/complaints, please write to: faizan@holdingbricks.com
                         </select>
                     </div>
                  </div>
-               </div>
+               </div> -->
 
                 <div class="clearfix"></div>
                 <div class="row">

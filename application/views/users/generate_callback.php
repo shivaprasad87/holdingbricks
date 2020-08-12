@@ -52,8 +52,8 @@
                     <div class="row">
                          <div class="col-md-6">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">E-mail 1 <span class="text-danger">*</span></label>
-                          <input type="email" class="form-control  validate[required]" name="email1">
+                          <label class="bmd-label-floating">E-mail 1 </label>
+                          <input type="email" class="form-control  " name="email1">
                         </div>
                       </div>
                         

@@ -2181,7 +2181,7 @@ pre code {
 
 .form-control:disabled,
 .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: #727374;
   opacity: 1;
   margin-top: 21px;
 }
@@ -12602,7 +12602,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 .bmd-form-group .form-control,
 .bmd-form-group label,
 .bmd-form-group input::placeholder {
-  line-height: 1.1;
+  line-height: 0;
 }
 .bmd-form-group input{
    margin-top: 33px;

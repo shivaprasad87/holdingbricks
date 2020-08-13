@@ -77,7 +77,7 @@ table, th, td {
     <div class="col-md-12">
     <div class="row">
       <div class="col-md-4">
-        <table class="display" cellspacing="0" width="100%">
+        <table class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
           <thead>
             <tr>
               <th>Sl.No</th>

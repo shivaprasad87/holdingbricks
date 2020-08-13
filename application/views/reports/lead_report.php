@@ -75,54 +75,55 @@ table, th, td {
     </form>
     <br>
     <div class="col-md-12">
+    <div class="row">
       <div class="col-md-4">
         <table class="display" cellspacing="0" width="100%">
-        <thead>
-          <tr>
-            <th>Sl.No</th>
-            <th>Advisor</th>
-            <th>No. of callbacks Assigned</th>
-                        <th class="hidden">key</th>
-                        <th class="hidden" >fromDate</th>
-                        <th class="hidden">todate</th>
-                         
-          </tr>
-        </thead>
-        <tbody>
-          <?php if(count($advisors)>0){
-            $i = 1;
-            $total = 0;
-            foreach ($advisors as $key => $value) { 
-              $name = $this->user_model->get_user_fullname($key); 
-              $total += $value; ?>
+          <thead>
+            <tr>
+              <th>Sl.No</th>
+              <th>Advisor</th>
+              <th>No. of callbacks Assigned</th>
+                          <th class="hidden">key</th>
+                          <th class="hidden" >fromDate</th>
+                          <th class="hidden">todate</th>
+                          
+            </tr>
+          </thead>
+          <tbody>
+            <?php if(count($advisors)>0){
+              $i = 1;
+              $total = 0;
+              foreach ($advisors as $key => $value) { 
+                $name = $this->user_model->get_user_fullname($key); 
+                $total += $value; ?>
+                <tr>
+                  <td><?php echo $i; ?></td>
+                  <td><?php echo $name; ?></td>
+                  <td class="target" onclick="getrowvalue(this)" style="cursor: pointer;"><?=$value?> </td> 
+                                  <!-- <td><?=$key?></td> -->
+                                  <td class="hidden" id ="key"><?=$key?></td>
+                                  <div class="hidden" id="ls<?=$key?>"></div>
+                                  <td class="hidden">
+                                  <?=$this->input->get('fromDate');?>                              
+                                  </td>
+                                  <td class="hidden">
+                                  <?=$this->input->get('toDate');?>                              
+                                  </td>
+                                  
+                                  </tr>
+                              
+              <?php $i++; } ?>
               <tr>
-                <td><?php echo $i; ?></td>
-                <td><?php echo $name; ?></td>
-                <td class="target" onclick="getrowvalue(this)" style="cursor: pointer;"><?=$value?> </td> 
-                                 <!-- <td><?=$key?></td> -->
-                                 <td class="hidden" id ="key"><?=$key?></td>
-                                 <div class="hidden" id="ls<?=$key?>"></div>
-                                 <td class="hidden">
-                                 <?=$this->input->get('fromDate');?>                              
-                                 </td>
-                                 <td class="hidden">
-                                 <?=$this->input->get('toDate');?>                              
-                                 </td>
-                                
-                                 </tr>
-                             
-            <?php $i++; } ?>
-            <tr>
-              <td colspan="2">Total</td>
-              <td><a href="<?php echo base_url().'view_callbacks?report='.urlencode($reportType).'&dept='.urlencode($dept).'&city='.urlencode($city).'&fromDate='.urlencode($fromDate).'&toDate='.urlencode($toDate); ?>"><?php echo $total; ?></a></td>
-            </tr>
-          <?php } else { ?>
-            <tr>
-              <td colspan="3"> No entries </td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>
+                <td colspan="2">Total</td>
+                <td><a href="<?php echo base_url().'view_callbacks?report='.urlencode($reportType).'&dept='.urlencode($dept).'&city='.urlencode($city).'&fromDate='.urlencode($fromDate).'&toDate='.urlencode($toDate); ?>"><?php echo $total; ?></a></td>
+              </tr>
+            <?php } else { ?>
+              <tr>
+                <td colspan="3"> No entries </td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
       </div>
         <script>
            function getrowvalue(id){
@@ -204,10 +205,10 @@ table, th, td {
              }
 
          
-            </script>
+        </script>
 
-            
-    <div class="offset-2 col-md-4">
+        
+    <div class=" col-md-4">
             <table class="display-lead hidden" id="dispalycmr" cellspacing="0" width="100%">
            
         <thead id="customer-thead">
@@ -220,9 +221,10 @@ table, th, td {
         </thead>
         <tbody id="customer_detail"> </tbody>
       </table>
-     </div>
+    </div>
+   
 
-     <div class="offset-2 col-md-4">
+     <div class=" col-md-4">
             <table class="display-lead hidden" id="dispalyprd" cellspacing="0" width="100%">
            
         <thead id="product-thead">
@@ -236,10 +238,7 @@ table, th, td {
         <tbody id="product_detail"> </tbody>
       </table>
      </div>
-
-     
-   
-
+     </div> 
 
     <!-- <div class="col-md-4">
             <table class="display" cellspacing="0" width="100%">
@@ -310,6 +309,7 @@ table, th, td {
                 </tbody>
             </table>
     </div> -->
+    
     </div>
 
     

@@ -2183,6 +2183,7 @@ pre code {
 .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
+  margin-top: 21px;
 }
 
 select.form-control:not([size]):not([multiple]) {

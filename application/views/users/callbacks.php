@@ -97,6 +97,10 @@
         }
        
     }
+    .bmd-form-group .bmd-label-static {
+    top: -1.65rem;
+    }
+    
     /* @media screen and (max-width: 384px) {
         #search_form{
             display:block;
@@ -124,8 +128,10 @@
     }
 </style>
     <form method="POST" id="search_form">
+    <div class="row">
         <?php if($this->session->userdata("user_type")=="manager") { ?>
             <input type="hidden" name="self" id="self_input" value="<?php echo $this->session->userdata('self'); ?>">
+           
             <div class="col-md-3 form-group">
                 <label for="emp_code">Advisor:</label>
                 <select  class="form-control"  id="dept" name="advisor" >
@@ -138,6 +144,7 @@
             </div>            
         <?php } ?>
         <?php if($this->session->userdata("user_type")!="user") { ?>
+        
             <div class="col-md-3 form-group">
                 <label for="emp_code">Department:</label>
                 <select  class="form-control"  id="dept" name="dept" >
@@ -260,7 +267,9 @@
                 </select>
             </div>
         <?php } /*if($this->session->userdata("user_type")=="vp" || $this->session->userdata("user_type")=="director") {*/?>
-            <div class="col-sm-3">
+            
+            
+            <div class="col-md-3 form-group">
                 <div class="form-group">
                     <label>Search:</label>
                     <input type="text" class="form-control" name="srxhtxt" id="srxhtxt" placeholder="Enter search text" value="<?= ($this->session->userdata('SRCHTXT')) ? $this->session->userdata('SRCHTXT') : '' ?>" />
@@ -283,6 +292,7 @@
         </div>
         <div class="col-sm-3 form-group">
             <button type="submit" id="search" class="btn btn-success btn-block" style="margin-top: 24px;" >Search</button>
+        </div>
         </div>
     </form>
     <div class="clearfix"></div>

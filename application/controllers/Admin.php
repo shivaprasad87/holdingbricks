@@ -1193,7 +1193,9 @@ $customer_req = array(
 		//------ End --------------
 
         $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE);
+        $this->load->view('common_files/header');   
 		$this->load->view('admin/callbacks',$data);
+        $this->load->view('common_files/footer');
 	}
 
 	public function reports(){

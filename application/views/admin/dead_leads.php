@@ -823,7 +823,7 @@
                             ReAssign To Another Date 
                             </label>
                         </div>
-                        <div id="reDate" hidden >
+                        <div id="reDate"  style="display: none;" >
                             <div class="row">
                                 <div class="col-sm-12 form-group" >
                                     <label for="leadId">Date:</label>

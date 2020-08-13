@@ -632,7 +632,7 @@
                             ReAssign To Another Date 
                             </label>
                         </div>
-                        <div id="reDate" hidden >
+                        <div id="reDate" style="display: none;" >
                             <div class="col-sm-6 form-group" >
                                 <label for="leadId">Date:</label>
                                 <input type="text" class="form-control datepicker" id="reassign_date" name="email2" placeholder="Date">
@@ -654,7 +654,7 @@
                             Client Registration Email
                             </label>
                         </div>
-                        <div id="clientEmail" hidden>
+                        <div id="clientEmail" style="display: none;">
                             <div class="col-sm-12 form-group">
                                 <label for="email_id">Email Id:</label>
                                 <input type="email" class="form-control" id="client_email_id" name="email_id" placeholder="Email Id">

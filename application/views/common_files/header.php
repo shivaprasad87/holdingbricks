@@ -120,6 +120,7 @@ label {
     padding: 0;
     margin-right: 16px;
 }
+
   </style>
   </head>
   <div class="modal fade" id="modalPermission" role="dialog" data-backdrop="static">

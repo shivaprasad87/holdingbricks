@@ -18,8 +18,16 @@ class leadmodel extends CI_Model {
     } 
     function fetch_all_my_leads_by_status($status,$id)
     {
-        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status,ct.name as call_back_type FROM callback C join project p on C.project_id = p.id join lead_source ls on
-        C.status_id=ls.id  join callback_type ct on C.callback_type_id = ct.id where ls.id ="'.$status.'" and user_id = "'.$id.'"';
+        if($this->session->userdata('user_type')=='admin')
+            {
+                $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type,s.name as status_name, b.name as broker_name, concat(u.first_name," ",u.last_name) as user_name FROM callback C left join project p on C.project_id = p.id left join lead_source ls on
+        C.status_id=ls.id left join callback_type ct on C.callback_type_id = ct.id left join status s on C.status_id = s.id left join broker b on C.broker_id = b.id left join user u on C.user_id = u.id where ls.id ="'.$status.'"';
+    }
+    else
+    {
+        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type,s.name as status_name, b.name as broker_name, concat(u.first_name," ",u.last_name) as user_name FROM callback C left join project p on C.project_id = p.id left join lead_source ls on
+        C.status_id=ls.id left join callback_type ct on C.callback_type_id = ct.id left join status s on C.status_id = s.id left join broker b on C.broker_id = b.id left join user u on C.user_id = u.id where ls.id ="'.$status.'" and user_id = "'.$id.'"';
+    }
         $query=$this->db->query($query);
         return  $query->result();
 
@@ -97,8 +105,8 @@ class leadmodel extends CI_Model {
 
     function get_my_active_leads($id)
     {
-        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type,s.name as status_name FROM callback C left join project p on C.project_id = p.id left join lead_source ls on
-        C.status_id=ls.id left join callback_type ct on C.callback_type_id = ct.id left join status s on C.status_id = s.id where C.status_id != "4" and C.status_id  != "5"  ';
+        $query='SELECT C.*,p.name as project_name ,ls.name as lead_status, ct.name as call_back_type,s.name as status_name, b.name as broker_name, concat(u.first_name," ",u.last_name) as user_name FROM callback C left join project p on C.project_id = p.id left join lead_source ls on
+        C.status_id=ls.id left join callback_type ct on C.callback_type_id = ct.id left join status s on C.status_id = s.id left join broker b on C.broker_id = b.id left join user u on C.user_id = u.id where C.status_id != "4" and C.status_id  != "5"  ';
 
 
         if($this->session->userdata("user_type")!="admin"){

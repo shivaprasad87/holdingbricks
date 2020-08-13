@@ -81,8 +81,12 @@ class my_leads extends CI_Controller {
                         $r->project_name,
                         $r->call_back_type,
                         $r->status_name,
+                        $r->broker_name,
+                        $r->user_name,
+                        $r->due_date,
                         $r->lead_status,
                         $r->date_added,
+                        $r->last_update,
                         anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                         <i class="material-icons">edit</i>
                       <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),               
@@ -102,8 +106,12 @@ foreach ($results  as $r) {
                         $r->email1,
                         $r->project_name,
                         $r->call_back_type,
-                        $r->status_name, 
+                        $r->status_name,
+                        $r->broker_name,
+                        $r->user_name,
+                        $r->due_date, 
                         $r->date_added,
+                        $r->last_update,
                         anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                         <i class="material-icons">edit</i>
                       <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),               
@@ -166,15 +174,20 @@ foreach ($results  as $r) {
         foreach ($results  as $r) {
             array_push($data, array(
                     //print_r($r);
-                    $i,
-                    $r->leadid,
+                        $i, 
+                        $r->leadid,
                         $r->name,
                         $r->contact_no1,
                         $r->email1,
                         $r->project_name,
                         $r->call_back_type,
+                        $r->status_name,
+                        $r->broker_name,
+                        $r->user_name,
+                        $r->due_date,
                         $r->lead_status,
                         $r->date_added,
+                        $r->last_update,
                     anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                     <i class="material-icons">edit</i>
                     <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>'),

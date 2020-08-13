@@ -26,6 +26,17 @@
   <link href="<?php echo base_url();?>/assets/css/footable.bootstrap.min.css" rel="stylesheet" />
   <script src="<?php echo base_url();?>/assets/js/footable.min.js"></script>
   <script src="<?php echo base_url();?>/assets/js/footable.js"></script> 
+<style>
+.form-group .bmd-label-static {
+    top: -14px;
+    left: 15px;
+}
+.bmd-form-group .bmd-label-floating, .bmd-form-group .bmd-label-placeholder {
+    top: -1.3875rem;
+    left: 0px;
+}
+</style>
+  </head>
 <body class="">
 <div id="login" class="wrapper">
 <div class="main-panel">

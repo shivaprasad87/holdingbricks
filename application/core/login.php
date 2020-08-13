@@ -20,6 +20,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //lined-icons -->
 <script src="<?php echo base_url(); ?>assets/js/jquery-1.10.2.min.js"></script>
 <!--clock init-->
+<style>
+.form-group .bmd-label-static {
+    top: -14px;
+    left: 15px;
+}
+.bmd-form-group .bmd-label-floating, .bmd-form-group .bmd-label-placeholder {
+    top: -1.3875rem;
+    left: 0px;
+}
+</style>
 </head> 
 <body>
 								<!--/login-->

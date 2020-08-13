@@ -31,6 +31,10 @@
                 </div>
                 </div>
          </div>
+         </div>
+</div>
+
+
     <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -41,12 +45,10 @@
             </tr>
         </thead> 
         <tbody>
-            <?php
-            $i=1;
-             if(isset($all_statuses) && $all_statuses){
+            <?php if(isset($all_statuses) && $all_statuses){
                 foreach($all_statuses as $status){ ?>
                     <tr>
-                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $status->id; ?></td>
                         <td><?php echo $status->name; ?></td>
                         <td><?php echo $status->date_added; ?></td>
                         <td align="middle"><button type="button" id="b1<?php echo $status->id; ?>" class="btn <?php echo $status->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $status->id; ?>)"><span id="statusus_sp_<?php echo $status->id; ?>"><?php echo $status->active?'Active':'Inactive'; ?></span></button></td>
@@ -56,8 +58,7 @@
         </tbody>
     </table>
 
-    </div>
-    </div>
+    
     <script>
         function add(){
             $(".se-pre-con").show();

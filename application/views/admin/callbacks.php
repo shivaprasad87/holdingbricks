@@ -207,7 +207,7 @@
         </form>
    </div>
     <!-- display nowrap -->
-    <div class="" style="margin-bottom: 5%;">
+    <div class="table-responsive" style="margin-bottom: 5%;">
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr id="tableheading">
@@ -285,8 +285,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Call back Notes</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Call back Notes</h4>
+               
             </div>
             <div class="modal-body">
                 <table id="example1" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%" >
@@ -315,10 +316,12 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Call back details</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Call back details</h4>
+               
             </div>
             <div class="modal-body">
+            <div class="row">
                 <div class="col-xs-12 col-md-3 form-group">
                     <input type="hidden" id="mhid">
                     <label for="emp_code">Dept:</label>
@@ -433,73 +436,77 @@
                         <?php } ?>               
                     </select>
                 </div>
-                <div id="abc" hidden class="row">
-                    <div class="col-sm-6 form-group">
-                        <label for="client_name">Client name:</label>
-                        <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Client Email Id:</label>
-                        <input type="email" class="form-control" id="c_client_email" name="client_email" placeholder="Client Email Id">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Site visit date:</label>
-                        <input type="text" class="form-control datepicker" id="c_client_visit" name="email2" placeholder="Site visit date" onchange="update_client_note();">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Site Assisted by:</label>
-                        <input type="text" class="form-control" onblur="le()" id="c_assign_by" name="assign_by" placeholder="Site Assisted by" onchange="update_client_note();">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Relation ship Manager:</label>
-                        <input type="text" class="form-control" id="c_relationShipManager" name="c_relationShipManager" placeholder="Relation ship Manager" onchange="update_client_note();">
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="email">Subject:</label>
-                        <input type="text" class="form-control" id="c_subject" name="email2" value="Thank you For the Site Visit" placeholder="Subject">
-                    </div>
-                    <div class="col-sm-12 form-group">
-                        <label for="comment">Mail Box:</label>
-                        <textarea class="form-control" name="notesClient" id="c_notesClient" rows="18" id="comment">
-
-                            Greetings From Fullbasket Property.
-
-                            With reference to your site visit on  assisted by Mr. abhishek from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr.  from FBP will be at your service. He/she will be there to assist you in searching your dream home.
-                            
-                            1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.
-
-                            2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.
-
-                            3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.
-
-                            4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.
-
-                            5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.
-
-
-                            For any escalations/ complaints please write to admin@leads.com
-
-                            Regards
-
-                            Team Fullbasket Property Services Pvt Ltd
-
-
-                        </textarea>
-                    </div>
-                    <div class="col-sm-12 form-group" >
-                        <div class="alert alert-success" id="mail_success" style="display:none">
-                            <strong>Success!</strong> Email sent successfully.
+            
+                <div id="abc" hidden>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label for="client_name">Client name:</label>
+                            <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
                         </div>
-                        <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()" >Send</button>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Client Email Id:</label>
+                            <input type="email" class="form-control" id="c_client_email" name="client_email" placeholder="Client Email Id">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Site visit date:</label>
+                            <input type="text" class="form-control datepicker" id="c_client_visit" name="email2" placeholder="Site visit date" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Site Assisted by:</label>
+                            <input type="text" class="form-control" onblur="le()" id="c_assign_by" name="assign_by" placeholder="Site Assisted by" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Relation ship Manager:</label>
+                            <input type="text" class="form-control" id="c_relationShipManager" name="c_relationShipManager" placeholder="Relation ship Manager" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Subject:</label>
+                            <input type="text" class="form-control" id="c_subject" name="email2" value="Thank you For the Site Visit" placeholder="Subject">
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <label for="comment">Mail Box:</label>
+                            <textarea class="form-control" name="notesClient" id="c_notesClient" rows="18" id="comment">
+
+                                Greetings From Fullbasket Property.
+
+                                With reference to your site visit on  assisted by Mr. abhishek from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr.  from FBP will be at your service. He/she will be there to assist you in searching your dream home.
+                                
+                                1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.
+
+                                2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.
+
+                                3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.
+
+                                4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.
+
+                                5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.
+
+
+                                For any escalations/ complaints please write to admin@leads.com
+
+                                Regards
+
+                                Team Fullbasket Property Services Pvt Ltd
+
+
+                            </textarea>
+                        </div>
+                        <div class="col-sm-12 form-group" >
+                            <div class="alert alert-success" id="mail_success" style="display:none">
+                                <strong>Success!</strong> Email sent successfully.
+                            </div>
+                            <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()" >Send</button>
+                        </div>
                     </div>
                 </div>
-                <div id="dead" class="row" hidden>
+                <div id="dead"  hidden>
                     <div class="col-sm-12 form-group">
                         <label for="comment">Reason of dead:</label>
                         <textarea class="form-control" name="notes" id="notes" rows="3" id="reasonOfDead"></textarea>
                     </div>
                 </div>
-                <div id="close" class="row" hidden>
+                <div id="close">
+                <div class="row">
                     <div class="col-sm-6 form-group">
                         <label for="email">Advisor one:</label>
                         <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" required="required" >
@@ -641,7 +648,9 @@
                         <label for="email">Project Type:</label>
                         <input type="text" class="form-control" id="c_projectType" name="email2" placeholder="Project Type">
                     </div>
+                    </div>
                 </div> 
+
                 <div class="col-sm-4 form-group">
                     <label for="comment">Preview Callbacks:</label>
                     <textarea class="form-control" name="notes" id="previous_callback1" rows="3" id="comment" readonly></textarea>
@@ -732,6 +741,7 @@
                                             
                     </select>
                 </div>
+
                 <div class="clearfix"></div>
                 <div class="col-md-6 form-group">
                     <input type="checkbox" name="fancy-checkbox-success" onclick="reassignDate()"  id="fancy-checkbox-success" autocomplete="off" />
@@ -806,6 +816,7 @@
                             <button type="button" onclick="sendRegMail()" class="btn btn-success">Send</button>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="modal-footer">

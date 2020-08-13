@@ -48,33 +48,7 @@
                               <div class="tab-pane active show" id="My_Leads">
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="bookTable" style="width:100% !important">
-                                      <thead>
-
-                                                  <tr>
-                                                <th>S.No</th>
-                                                <th>L NO</th>
-                                                <th>Name</th>
-                                                <th>Mobile</th>
-                                                <th>Email</th>
-                                                <th>Project</th>
-                                                <th>Call type</th>
-                                                <th>Status</th>
-                                                <th>Sub Source</th>
-                                                <th>Advisor</th>
-                                                <th>Due Date</th>
-                                                
-                                                
-                                                <?php
-                                                if($this->session->userdata('user_type')=='admin')
-                                                {
-                                                  echo "<th>Source Name</th>";
-                                                }
-                                                ?> 
-                                                <th>Date Added</th>
-                                                <th>Last Updated</th>
-                                                <th></th>
-                                              </tr>
-                                            </thead>
+                                     
                                               <thead>
 
                                                   <tr>
@@ -185,29 +159,29 @@ $(document).ready(function() {
     $('#bookTable').dataTable({
         "ajax": "<?php echo base_url('my_leads/get_all_my_leads'); ?>",
         "dom": 'T<"clear">lfrtip',
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var s = '<select><option value=""></option></select>';
+        // initComplete: function () {
+        //     this.api().columns().every( function () {
+        //         var column = this;
+        //         var s = '<select><option value=""></option></select>';
                 
-                  var select = $(s)
-                    .appendTo( $(column.header()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
+        //           var select = $(s)
+        //             .appendTo( $(column.header()).empty() )
+        //             .on( 'change', function () {
+        //                 var val = $.fn.dataTable.util.escapeRegex(
+        //                     $(this).val()
+        //                 );
  
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
+        //                 column
+        //                     .search( val ? '^'+val+'$' : '', true, false )
+        //                     .draw();
+        //             } );
                 
  
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
+        //         column.data().unique().sort().each( function ( d, j ) {
+        //             select.append( '<option value="'+d+'">'+d+'</option>' )
+        //         } );
+        //     } );
+        // }
     });
  
     // $('#gleads').dataTable({

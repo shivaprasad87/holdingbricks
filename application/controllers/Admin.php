@@ -1255,8 +1255,8 @@ $customer_req = array(
 			//$this->email->send();
 			if($this->email->send())
 				echo "Success";
-			/*else
-			echo $this->email->print_debugger();*/
+			else
+			echo $this->email->print_debugger();
 			//print_r($to_emails);
 			
 			exit;

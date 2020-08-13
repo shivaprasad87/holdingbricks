@@ -3536,5 +3536,32 @@ public function make_user_online($value='')
         force_download($db_name, $backup); 
 	}  	
 	 
+	public function lead_report($fromDate='',$toDate='',$user_id='',$lead_source_id='',$project_id='')
+	{
+		$fromDate = $this->input->get_post('fromDate');
+		$toDate = $this->input->get_post('toDate');
+		$user_id = $this->input->get_post('user_id');
+		$lead_source_id = $this->input->get_post('lead_source_id');
+		$project_id = $this->input->get_post('project_id');
+		$result= $this->callback_model->get_lead_report($fromDate,$toDate,$user_id,$lead_source_id,$project_id);
+		
+		if($lead_source_id!=''&& $project_id!='')
+		{
+			$data['name'] = "Lead Report";
+        	$data['heading'] = "Lead Report";
 
+	        $data['fromDate'] = $this->input->post_get('fromDate');
+	        $data['toDate'] = $this->input->post_get('toDate');
+	        $data['advisor'] = $user_id;
+			$data['result'] = $result;
+			$this->load->view('common_files/header');
+        $this->load->view('reports/new_lead_report',$data);
+        $this->load->view('common_files/footer');
+			
+		}
+		else
+		{
+			echo json_encode($result);
+		}
+	}
 }

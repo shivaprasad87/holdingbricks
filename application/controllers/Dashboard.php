@@ -1093,8 +1093,9 @@ class Dashboard extends CI_Controller {
         $data['lead_source'] = $lead_source;
         $data['status'] = $status;
 
-
+        $this->load->view('common_files/header');
         $this->load->view('reports/view_callbacks',$data);
+        $this->load->view('common_files/footer');
     }
 
     function view_callback_datas(){

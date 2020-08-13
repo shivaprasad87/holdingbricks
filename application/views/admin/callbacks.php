@@ -190,10 +190,10 @@
                     </div>
                     <div class="clearfix"></div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-4 form-group">
                         <button class="btn btn-info btn-block" id="admin-reset"onclick="reset_data()" >Reset</button>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4 form-group">
                         <button type="submit" id="admin-search" class="btn btn-success btn-block">Search</button>
                     </div>
             </div>

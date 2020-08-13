@@ -1584,17 +1584,7 @@
 </script>
 
             </div><!--/tabs-->
-                     <div class="tab-main">
-                       <!--/tabs-inner-->
-                        
-                        </div>
-                        <!--//tabs-inner-->
-
-                   <!--footer section start-->
-                    <footer>
-                       <p>&copy <?= date('Y')?> Fullbasket Property . All Rights Reserved | Design by <a href="https://secondsdigital.com/" target="_blank">Seconds Digital Solutions.</a></p>
-                    </footer>
-                  <!--footer section end-->
+              
                 </div>
               </div>
         <!--//content-inner-->

@@ -22,15 +22,11 @@
             
             <input type="time" class="form-control" id="toTime" name="toTime" placeholder="Time" value="23:59" required="required">
     </div>
-    <div class="col-xs-6 col-md-6 form-group">
-            <input  type="submit" id="Generate"  value="Generate"class="btn btn-success btn-block">
-        </div>
-        <div class="col-xs-6 col-md-6 form-group">
-            <button type="reset" id="save" class="btn btn-danger btn-block">Cancel</button>
-        </div>
-
+    </div>
     <div class="clearfix"></div>
-    <br>
+    <div class="row">
+      
+    
     <div class="col-xs-12 col-md-6 form-group radio-btn"> 
             <div class="row">
             <label for = "lead_report" class="lead col-xs-6 col-md-6">Lead Report:</label>
@@ -96,8 +92,18 @@
             </div>
             <div class="clearfix"></div> -->
     </div> 
-        
+
+    <div class="col-md-6">
+    <div class="col-xs-6 col-md-12 form-group">
+                <button type="reset" id="save" class="btn btn-danger btn-block">Cancel</button>
+            </div>
+            <div class="col-xs-6 col-md-12 form-group">
+                <input  type="submit" id="Generate"  value="Generate"class="btn btn-success btn-block">
+            </div>
+            
         </div>
+        
+       
         </div>
   </form>
                     </div>

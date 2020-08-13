@@ -44,6 +44,7 @@ table, th, td {
     <strong>Error!</strong> Email not Sent.
   </div>
   <form method="GET" action="<?php echo base_url()?>admin/generate_report">
+  <div class="row">
     <div class="col-sm-3 form-group">
       <label for="emp_code">Dept:</label>
             <select  class="form-control"  id="dept" name="dept" required >
@@ -70,6 +71,7 @@ table, th, td {
         <div class="col-sm-3 form-group">
             <button id="email_this_report" class="btn btn-default btn-block">Email this report</button>
         </div>
+    </div>
     </form>
     <br>
     <div class="col-md-12">
@@ -132,14 +134,14 @@ table, th, td {
              var fromDate=$($(trid)[4]).text().trim();
              var toDate=$($(trid)[5]).text().trim();
              $("#customer_detail").empty();
-             var weburl=   'https://'+window.location.host+'/admin/lead_report?user_id='+userid+'&fromDate='+fromDate+'&toDate='+toDate
+             var weburl=   'http://'+window.location.host+'/admin/lead_report?user_id='+userid+'&fromDate='+fromDate+'&toDate='+toDate
              console.log(weburl);
              var tbody='';
              var theadtr='';
              
              $.ajax({
                  "Type":"GET",
-                  "url":' https://'+window.location.host+'/admin/lead_report?user_id='+userid+'&fromDate='+fromDate+'&toDate='+toDate,
+                  "url":' http://'+window.location.host+'/admin/lead_report?user_id='+userid+'&fromDate='+fromDate+'&toDate='+toDate,
                   success: function (response) {
                       var data=JSON.parse(response)
                      var thead= Object.keys(data[0])
@@ -177,7 +179,7 @@ table, th, td {
              var theadtr='';
                 $.ajax({
                  "Type":"GET",
-                 "url":' https://'+window.location.host+'/admin/lead_report?user_id='+user_id+'&fromDate='+fromDate+'&toDate='+toDate+'&lead_source_id='+lead_source_id,
+                 "url":' http://'+window.location.host+'/admin/lead_report?user_id='+user_id+'&fromDate='+fromDate+'&toDate='+toDate+'&lead_source_id='+lead_source_id,
                   success: function (response) {
                       var data=JSON.parse(response)
                       console.log(data)
@@ -189,7 +191,7 @@ table, th, td {
                     //  theadtr+='<tr><th colspan=2>'+data[0].user_name+'</th></tr><tr><th>Count</th><th>Project Name</th></tr>';
                     //   $("#product-theadtr").append(theadtr);
                     for(i=0;i<=data.length-1;i++){
-                      var url_of_project = 'https://'+window.location.host+'/admin/lead_report?user_id='+user_id+'&fromDate='+fromDate+'&toDate='+toDate+'&lead_source_id='+lead_source_id+'&project_id='+data[i].project_id;
+                      var url_of_project = 'http://'+window.location.host+'/admin/lead_report?user_id='+user_id+'&fromDate='+fromDate+'&toDate='+toDate+'&lead_source_id='+lead_source_id+'&project_id='+data[i].project_id;
                     tbody +='<tr><td style="display:none;">'+data[i].project_id+'</td><td style="display:none;">'+data[i].user_id+'</td><td>'+data[i].project+'</td><td class="target"><a href="'+url_of_project+'"  target="_blank" style="cursor: pointer;">'+data[i].count+'</a></td><td style="display:none;">'+lead_source_id+'</td><td style="display:none;">'+fromDate+'</td><td style="display:none;">'+toDate+'</td></tr>'
                 }
                 $("#product_detail").append(tbody)

@@ -66,11 +66,11 @@ class my_leads extends CI_Controller {
             }else{
         $id=$this->session->userdata('user_id');}
         $results=$this->leadmodel->get_my_active_leads($id);
-
-
         $data = array();
         $i=1;
-            foreach ($results  as $r) {
+        if($this->session->userdata('user_type')=='admin')
+            {
+             foreach ($results  as $r) {
                 array_push($data, array(
                         //print_r($r);
                         $i,
@@ -80,19 +80,38 @@ class my_leads extends CI_Controller {
                         $r->email1,
                         $r->project_name,
                         $r->call_back_type,
+                        $r->status_name,
                         $r->lead_status,
                         $r->date_added,
                         anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
                         <i class="material-icons">edit</i>
-                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),
-                    
-
-                     
-                            
+                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),               
                 ));
                 $i++;
             }
-            //print_r($results);
+            }
+            else
+            {
+foreach ($results  as $r) {
+                array_push($data, array(
+                        //print_r($r);
+                        $i,
+                        $r->leadid,
+                        $r->name,
+                        $r->contact_no1,
+                        $r->email1,
+                        $r->project_name,
+                        $r->call_back_type,
+                        $r->status_name, 
+                        $r->date_added,
+                        anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                        <i class="material-icons">edit</i>
+                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),               
+                ));
+                $i++;
+            }
+            }
+             
         echo json_encode(array('data' => $data));//send data to data table
     }
 

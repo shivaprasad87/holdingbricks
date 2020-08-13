@@ -404,33 +404,41 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function search_callback(){
-		$data['name'] ="search";
-		$data['heading'] ="Search";
+    public function search_callback($page = ''){
 
-		$type=$this->input->post('type');
-		$query=$this->input->post('query');
-		if($type != null){
-			$this->session->set_userdata("type",$type);
-			$this->session->set_userdata("query",$query);
-		}
-		else{
-			$type = $this->session->userdata("type");
-			$query = $this->session->userdata("query");
-		}
-		if($type){
+        $data['name'] ="search";
+        $data['heading'] ="Search";
+        $result = $this->callback_model->search_callback('','',false,false,$this->session->userdata("user_type"));
+        $data_result=array();
+        $i=1;
+        if($page)
+        {
+        foreach ($result  as $r) {
+                array_push($data_result, array( 
+                        $i,
+                        $r->leadid,
+                        $r->name,
+                        $r->contact_no1,
+                        $r->email1,
+                        $r->project_name, 
+                        $r->status_name, 
+                        $r->date_added,
+                        anchor('callback-details?id='.$r->id, '<button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip66014">
+                        <i class="material-icons">edit</i>
+                      <div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 10px; top: 9px; background-color: rgb(156, 39, 176); transform: scale(3.44923);"></div></div></button>',['target' => '_blank']),               
+                ));
+                $i++;
+            }
 
-			$data['result'] = $this->callback_model->search_callback($type,$query);
-		}
-		else
-			$data['result'] = false;
-
-		$data['header'] = '';
-		 $this->load->view('common_files/header');
+       echo json_encode(array('data' => $data_result));
+   }
+   else{
+        $data['header'] = '';
+        $this->load->view('common_files/header');
         $this->load->view('admin/search_callback',$data);
-        $this->load->view('common_files/footer');
-		
-	}
+        $this->load->view('common_files/footer'); 
+    }
+    }
 
 	function revenue_approval($page=1){
 		$data['name'] = 'revenue_approval';

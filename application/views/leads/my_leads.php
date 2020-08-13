@@ -59,6 +59,12 @@
                                                 <th>Project</th>
                                                 <th>Call type</th>
                                                 <th>Status</th>
+                                                <?php
+                                                if($this->session->userdata('user_type')=='admin')
+                                                {
+                                                  echo "<th>Source Name</th>";
+                                                }
+                                                ?> 
                                                 <th>Date</th>
                                                 <th>Update</th>
                                               </tr>

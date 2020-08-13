@@ -320,3 +320,16 @@ table, th, td {
           </div>
         </div>
       </div>
+      <script type="text/javascript">
+  $("#email_this_report").click(function(e){
+    e.preventDefault();
+    $(".alert-success").hide();
+    $(".alert-danger").hide();
+    $.get("<?php echo base_url().'admin/email_report?fromDate='.urlencode($fromDate).'&toDate='.urlencode($toDate).'&city='.urlencode($city).'&dept='.urlencode($dept).'&reportType='.urlencode($reportType); ?>", function(response){
+      if(response == "Success")
+        $(".alert-success").show();
+      else
+        $(".alert-danger").show();
+    });
+  });
+</script>

@@ -119,33 +119,34 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-      <h4 class="modal-title">Forgot Password</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-      <div class="modal-body">
-      <?php $attributes = array('class' => 'common_valid'); echo form_open("myaccount/forgot_password",$attributes); ?>
-                     
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Email <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control  validate[required] "  id="Email" name="email">
-                        </div>
-                      </div>
-                     
+  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Forgot Password?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
                     </div>
-                    <button type="reset" class="btn btn-warning pull-right" class="close" data-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-primary pull-right">Submit</button>  
-                       <div class="clearfix"></div>
-                  <?php echo form_close() ?>
-      </div>
-       
-    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-success" style="display: none;" id="success_alert">
+                            <strong>Success!</strong> Acc details sent to email.
+                        </div>
+                        <div class="alert alert-danger" style="display: none;" id="error_alert">
+                            <strong>Error!</strong> Acc doesn't exists.
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <!-- <button type="submit" id="forget_pass_submit" class="btn btn-default">Submit</button> -->
+                             <button type="reset" class="btn btn-warning pull-right" class="close" data-dismiss="modal">Cancel</button>
+                      <button type="submit" id="forget_pass_submit" class="btn btn-primary pull-right">Submit</button>  
+                        </form>
+                    </div> 
+                </div>
 
   </div>
 </div>
+
   <script src="<?php echo base_url();?>/assets/js/core/popper.min.js"></script>
   <script src="<?php echo base_url();?>/assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="<?php echo base_url();?>/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -190,7 +191,28 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-  
+    <script type="text/javascript">
+        $("#forget_pass_submit").click(function(e){
+            e.preventDefault();
+            if($('#email').val() == ""){
+                $('#email').focus();
+                return false;
+            }
+            $.post( "<?= base_url();?>login/forget_pass", { email: $('#email').val() }, function(response){
+                if(response == "success"){
+                    $("#success_alert").show();
+                    $("#error_alert").hide();
+                }
+                else{
+                    $("#success_alert").hide();
+                    $("#error_alert").show();
+                }
+            } );
+        });
+        $("#forget_pass").click(function(e){
+            e.preventDefault();
+        });
+    </script>
   <script>
 
 $(".common_valid").validationEngine('attach',{scroll: false,promptPosition: "topLeft"});

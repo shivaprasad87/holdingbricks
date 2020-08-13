@@ -333,7 +333,11 @@ class Dashboard extends CI_Controller {
 
         //$data['result'] = $this->callback_model->search_callback(null,$where,null,null,$user_type);
         $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE, $user_type);
-        $this->load->view('callbacks',$data);
+        
+        $this->load->view('common_files/header');   
+        $this->load->view('users/callbacks',$data);
+        $this->load->view('users/callback_operations');
+        $this->load->view('common_files/footer');
     }
 
     public function generate_dar() {
@@ -937,7 +941,7 @@ class Dashboard extends CI_Controller {
     function get_previous_data($id){
         $data['result'] = $this->callback_model->get_callback_data($id);
         // echo "<pre>";print_r($data);exit;
-        $this->load->view("view_previous_data",$data);
+        $this->load->view("users/view_previous_data",$data);
     }
 
     function mark_not_important($id){

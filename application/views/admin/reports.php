@@ -32,9 +32,11 @@
     <div class="clearfix"></div>
     <br>
     <div class="col-xs-12 col-md-6 form-group radio-btn"> 
-            <label for = "lead_report" class="lead col-xs-6">Lead Report:</label>
-            <div class="lead col-xs-5">
+            <div class="row">
+            <label for = "lead_report" class="lead col-xs-6 col-md-6">Lead Report:</label>
+            <div class="lead col-xs-5 col-md-6">
                 <input type="radio" class="form-control lead" id="lead_report" value="lead" name="reportType" >
+            </div>
             </div>
             <div class="clearfix"></div>
             <!-- <label for = "lead_assignment_report" class="lead col-xs-6">Lead Assignment Report:</label>

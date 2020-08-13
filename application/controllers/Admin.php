@@ -1267,8 +1267,10 @@ $customer_req = array(
 	function generate_report(){	
 			$data['name'] = "reports";
 			$data['heading'] ="Reports";
+
 			if($this->input->get()){
 				if($this->input->get('fromDate')){
+					
 					$fromDate=$this->input->get('fromDate');
 					$fromTime=$this->input->get('fromTime');
 					$fromDate .= " ".$fromTime;
@@ -1298,7 +1300,7 @@ $customer_req = array(
 					$fromDate = $this->session->userdata('report-fromDate');
 					$toDate = $this->session->userdata('report-toDate');
 					$reportType = $this->session->userdata('report-type');
-				}
+				} 
 				$data['dept'] = $dept;
 				$data['city'] = $city;
 				$data['project'] = $project;
@@ -1328,9 +1330,13 @@ $customer_req = array(
 				else
 					$report_data = $this->generate_callback_report_data($fromDate, $toDate, $dept, $city, $reportType);
 
+				//print_r($report_data);die;
 				if($report_data){
 					$data = array_merge($data, $report_data);
+					$this->load->view('common_files/header');
+					
 					$this->load->view($data['view_page'], $data);
+        $this->load->view('common_files/footer');
 				}
 				else
 					redirect(base_url().'admin/reports');

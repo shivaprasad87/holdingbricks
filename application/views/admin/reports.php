@@ -8,7 +8,7 @@
                 <h4> <?=$heading;?> </h4>
                 </div>
                 <div class="card-body">
-                    <form action="<?php echo base_url()?>admin/generate_report">
+    <form action="<?php echo base_url()?>admin/generate_report">
     <div class="col-xs-12 col-md-12">
     <div class="row">
     <div class="col-xs-6 col-md-6 form-group">
@@ -23,7 +23,7 @@
             <input type="time" class="form-control" id="toTime" name="toTime" placeholder="Time" value="23:59" required="required">
     </div>
     <div class="col-xs-6 col-md-6 form-group">
-            <button type="submit" id="Generate" class="btn btn-success btn-block">Generate</button>
+            <input  type="submit" id="Generate"  value="Generate"class="btn btn-success btn-block">
         </div>
         <div class="col-xs-6 col-md-6 form-group">
             <button type="reset" id="save" class="btn btn-danger btn-block">Cancel</button>
